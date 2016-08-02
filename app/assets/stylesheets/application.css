@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+body, header, div, h1, h2, h3, form, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: inherit;
+  display: block;
+}
+
+div .channel-index {
+  display: block;
+  background-color: #4d394b;
+  width: 300px;
+  height: 100vh;
+  float: left;
+}
+
+li .channel-index {
+  color: #ab9ba9;
+  display: block;
+  float: left;
+  width: 250px;
+}
