@@ -1,6 +1,5 @@
 class Api::SessionsController < ApplicationController
-  def new
-  end
+  skip_before_action :require_sign_in, only: [:create, :destroy]
 
   def create
     @user = User.find_by_credentials(
@@ -13,7 +12,7 @@ class Api::SessionsController < ApplicationController
       render "api/users/show"
     else
       render(
-        json: ["Invalid credentials"],
+        json: {base: ["Invalid credentials"]},
         status: 401
       )
     end
@@ -28,7 +27,7 @@ class Api::SessionsController < ApplicationController
       render "api/users/show"
     else
       render(
-        json: ["No user is logged in"],
+        json: {base: ["No user is logged in"]},
         status: 404
       )
     end

@@ -14,7 +14,10 @@ class Api::ChannelsController < ApplicationController
     if @channel.save
       render :show
     else
-      render json: @channel.errors.full_messages
+      render(
+        json: @channel.errors.messages,
+        status: 422
+      )
     end
   end
 

@@ -9,7 +9,10 @@ module.exports = {
         user: user
       },
       success,
-      error
+      error(xhr) {
+        const errors = xhr.responseJSON;
+        error("signup", errors);
+      }
     });
   },
 
@@ -21,7 +24,10 @@ module.exports = {
         session: data
       },
       success,
-      error
+      error(xhr) {
+        const errors = xhr.responseJSON;
+        error("login", errors);
+      }
     });
   },
 

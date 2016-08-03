@@ -1,7 +1,7 @@
 // import { React } from 'react';
 const React = require('react');
-const ChannelStore = require('../stores/channels');
-const ChannelActions = require('../actions/channel_actions');
+const ChannelStore = require('../../stores/channels');
+const ChannelActions = require('../../actions/channel_actions');
 const ChannelIndexItem = require('./channel_index_item');
 
 const ChannelIndex = React.createClass({

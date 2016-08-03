@@ -8,7 +8,10 @@ class Api::UsersController < ApplicationController
       sign_in(@user)
       render :show
     else
-      render json: @user.errors.full_messages
+      render(
+        json: @user.errors.messages,
+        status: 422
+      )
     end
     render json
   end

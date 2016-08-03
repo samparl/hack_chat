@@ -1,5 +1,4 @@
 const AppDispatcher = require('../dispatcher/dispatcher');
-// const AppDispatcher = new Dispatcher();
 const Store = require('flux/utils').Store;
 const ChannelConstants = require('../constants/channel_constants');
 
