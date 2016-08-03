@@ -19,10 +19,11 @@ body, header, div, h1, h2, h3, form, ul, li {
   padding: 0;
   border: 0;
   box-sizing: inherit;
+  color: inherit;
   display: block;
 }
 
-div .channel-index {
+div.left-nav {
   display: block;
   background-color: #4d394b;
   width: 300px;
@@ -30,7 +31,11 @@ div .channel-index {
   float: left;
 }
 
-li .channel-index {
+/*div .channel-index {
+#ab9ba9
+}*/
+
+li.channel-index-item {
   color: #ab9ba9;
   display: block;
   float: left;

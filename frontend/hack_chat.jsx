@@ -5,9 +5,12 @@ const React = require('react'),
       ChannelIndex = require('./components/channel_index.jsx'),
       ChannelStore = require('./stores/channels'),
       ChannelActions = require('./actions/channel_actions'),
-      ChannelShow = require('./components/channel_show.jsx');
+      ChannelShow = require('./components/channel_show.jsx'),
+      LeftNav = require('./components/left_nav'),
+      SessionApiUtil = require('./util/session_api_util');
 
 window.ChannelStore = ChannelStore;
+window.SessionApiUtil = SessionApiUtil;
 
 const App = React.createClass({
   render() {
@@ -22,7 +25,7 @@ const App = React.createClass({
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={ChannelIndex} />
+    <IndexRoute component={LeftNav} />
     <Route path="channels" component={ChannelIndex} />
   </Route>
 );

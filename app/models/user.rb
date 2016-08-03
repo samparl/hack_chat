@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 # CLASS METHODS
 
   def self.find_by_credentials(email, password)
-    user = User.find(email: email)
+    user = User.find_by(email: email)
 
     return nil unless User
 
@@ -26,9 +26,9 @@ class User < ActiveRecord::Base
   end
 
   def reset_session!
-    session_token = generate_session_token
-    self.session_token = session_token
-    return session_token
+    self.session_token = generate_session_token
+    self.save!
+    return self.session_token
   end
 
   def password=(password)
