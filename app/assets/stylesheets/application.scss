@@ -18,12 +18,12 @@
 
 @font-face {
   font-family: "lato-regular";
-  src: url('fonts/Lato/Lato-Regular.ttf');
+  src: asset-url('fonts/Lato/Lato-Regular.ttf');
 }
 
 @font-face {
   font-family: "lato-light";
-  src: url('fonts/Lato/Lato-Light.ttf');
+  src: asset-url('fonts/Lato/Lato-Light.ttf');
 }
 
 html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
