@@ -11,7 +11,6 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <h1>TrajanChat</h1>
         {this.props.children}
       </div>
     );

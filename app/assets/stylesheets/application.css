@@ -15,6 +15,7 @@
  */
 
 
+
 @font-face {
   font-family: "lato-regular";
   src: url('fonts/Lato/Lato-Regular.ttf');
@@ -25,13 +26,14 @@
   src: url('fonts/Lato/Lato-Light.ttf');
 }
 
-html, body, header, div, h1, h2, h3, form, ul, li, input, button {
+html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing:border-box;
   color: inherit;
   display: block;
+  background-color: inherit;
   font-size: medium;
   font-family: lato-regular, sans-serif;
 }
@@ -57,25 +59,6 @@ html, body, header, div, h1, h2, h3, form, ul, li, input, button {
 
 h2 {
   font-size: xx-large;
-}
-
-div.left-nav {
-  display: block;
-  background-color: #4d394b;
-  width: 300px;
-  height: 100vh;
-  float: left;
-}
-
-li.channel-index-item {
-  color: #ab9ba9;
-  display: block;
-  float: left;
-  width: 250px;
-}
-
-li.channel-index-item:before {
-  content: "# "
 }
 
 .auth-page {
@@ -129,12 +112,61 @@ li.channel-index-item:before {
   background-color: #2ab27b;
 }
 
-
 /*LEFT NAV*/
 
-.channel-panel h3 {
+
+div.left-nav {
+  display: block;
+  background-color: #4d394b;
+  width: 300px;
+  height: 100vh;
+  float: left;
+}
+
+.left-header {
+  position: relative;
+  height: 60px;
+}
+
+.left-header:hover {
+  background-color: #3e313c;
+}
+
+.dropdown {
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  max-height: 100px;
+  height: 25%;
+  width: 350px;
+  background-color: #ffffff;
+  border: 1px solid #c5c5c5;
+}
+
+button .logout {
+  max-height: 100px;
+  height: 25%;
+  background-color: #ffffff
+}
+
+li.channel-index-item {
   color: #ab9ba9;
+  display: block;
+  float: left;
+  width: 250px;
+}
+
+li.channel-index-item:before {
+  content: "# "
+}
+
+.left-nav .team {
+  color: white;
   font-weight: bolder;
+}
+
+.channel-panel h4 {
+  color: #ab9ba9;
 }
 
 .channel-panel h3:hover {
