@@ -13,7 +13,6 @@ class Api::UsersController < ApplicationController
         status: 422
       )
     end
-    render json
   end
 
   private
