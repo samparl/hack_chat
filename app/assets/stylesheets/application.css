@@ -69,7 +69,8 @@ h2 {
 
 .auth-page article {
   display: inline-block;
-  flex-shrink: 1 width: 700px;
+  flex-shrink: 1;
+  width: 700px;
   /* height: 300px; */
   max-width: 500px;
   min-width: 200px;
