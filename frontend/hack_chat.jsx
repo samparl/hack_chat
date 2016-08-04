@@ -2,7 +2,9 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 
 const React = require('react'),
       ReactDOM = require('react-dom'),
-      IndexComponent = require('./components/index_component');
+      IndexComponent = require('./components/index_component'),
+      LoginForm = require('./components/forms/login_form'),
+      SignUpForm = require('./components/forms/signup_form');
 
 const App = React.createClass({
   render() {
@@ -15,10 +17,41 @@ const App = React.createClass({
   }
 });
 
+// function _redirectIfNotLoggedIn(nextState, replace) {
+//   if (!SessionStore.isUserLoggedIn()) {
+//     replace('/login');
+//   }
+// }
+//
+// function _redirectIfLoggedIn(nextState, replace) {
+//   if (SessionStore.isUserLoggedIn()) {
+//     replace('/');
+//   }
+// }
+
+
+// const routes = (
+//   <Route path="/" component={App}>
+//     <IndexRoute component={ AppIndex } onEnter={_redirectIfNotLoggedIn} />
+//     <Route path="login" component={ LoginForm } onEnter={_redirectNotLoggedIn} />
+//     <Route path="signup" component={ SignUpForm } onEnter={_redirectNotLoggedIn} />
+//   </Route>
+// );
+
+// const routes = (
+//   <Route path="/" component={App}>
+//     <IndexRoute component={ AppIndex } />
+//     <Route path="login" component={ LoginForm } />
+//     <Route path="signup" component={ SignUpForm } />
+//   </Route>
+// );
+
 
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={ IndexComponent } />
+    <Route path="login" component={ LoginForm } />
+    <Route path="signup" component={ SignUpForm } />
   </Route>
 );
 

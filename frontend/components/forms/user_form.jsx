@@ -102,7 +102,7 @@ module.exports = React.createClass({
           <label>Password<br></br>
             <input type="password" onChange={ this._handlePassword }/>
           </label><br></br>
-          <input type="submit" value="Sign In"/>
+        <input type="submit" value={ this.props.form }/>
         </form>
       </div>
     );

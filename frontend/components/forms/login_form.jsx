@@ -7,7 +7,7 @@ module.exports = React.createClass({
     return(
       <div>
         <h2>Sign in here</h2>
-        <UserForm form="login" callback={ SessionActions.logIn }/>
+        <UserForm form="Log In" callback={ SessionActions.logIn }/>
       </div>
     );
   }
