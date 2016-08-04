@@ -17,13 +17,13 @@ module.exports = React.createClass({
   // },
 
   componentDidMount() {
-    setTimeout(function () {
-      ErrorActions.clearErrors();
-    }, 0);
     this.errorListener = ErrorStore.addListener(this._onChange);
   },
 
   componentWillUnmount() {
+    setTimeout(function () {
+      ErrorActions.clearErrors();
+    }, 0);
     this.errorListener.remove();
   },
 
@@ -92,17 +92,21 @@ module.exports = React.createClass({
           <ul>
             { email_errors }
           </ul>
-          <label>Email<br></br>
-            <input type="text" onChange={ this._handleEmail }/>
-          </label>
+          <input
+            type="text"
+            placeholder="you@domain.com"
+            onChange={ this._handleEmail }
+            className="auth-input" />
           <br></br>
           <ul>
             { password_errors }
           </ul>
-          <label>Password<br></br>
-            <input type="password" onChange={ this._handlePassword }/>
-          </label><br></br>
-        <input type="submit" value={ this.props.form }/>
+          <input
+            type="password"
+            placeholder="password"
+            onChange={ this._handlePassword }
+            className="auth-input"/>
+        <input type="submit" value={ this.props.form } className="auth-input" />
         </form>
       </div>
     );

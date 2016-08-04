@@ -33,7 +33,7 @@ module.exports = React.createClass({
     }
 
     return(
-      <div>
+      <div className="auth-page">
         { form }
         <button onClick={ this._onClick }>{ link_text }</button>
       </div>

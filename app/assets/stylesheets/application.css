@@ -10,17 +10,53 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
-body, header, div, h1, h2, h3, form, ul, li {
+
+@font-face {
+  font-family: "lato-regular";
+  src: url('fonts/Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+  font-family: "lato-light";
+  src: url('fonts/Lato/Lato-Light.ttf');
+}
+
+html, body, header, div, h1, h2, h3, form, ul, li, input, button {
   margin: 0;
   padding: 0;
   border: 0;
-  box-sizing: inherit;
+  box-sizing:border-box;
   color: inherit;
   display: block;
+  font-size: medium;
+  font-family: lato-regular, sans-serif;
+}
+
+::-webkit-input-placeholder {
+  font-family: lato-light
+}
+
+
+:-moz-input-placeholder {
+  font-family: lato-light
+
+}
+
+::-moz-input-placeholder {
+  font-family: lato-light
+
+}
+
+:-ms-input-placeholder {
+  font-family: lato-light
+}
+
+h2 {
+  font-size: xx-large;
 }
 
 div.left-nav {
@@ -31,13 +67,76 @@ div.left-nav {
   float: left;
 }
 
-/*div .channel-index {
-#ab9ba9
-}*/
-
 li.channel-index-item {
   color: #ab9ba9;
   display: block;
   float: left;
   width: 250px;
+}
+
+li.channel-index-item:before {
+  content: "# "
+}
+
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-page article {
+  display: inline-block;
+  flex-shrink: 1 width: 700px;
+  /* height: 300px; */
+  max-width: 500px;
+  min-width: 200px;
+  width: 35%;
+  border: 0.1px solid #e8e8e8;
+  padding: 20px 40px 50px;
+  margin: 40px;
+  text-align: center;
+}
+
+.auth-page button {
+  border: none;
+  background: inherit;
+}
+
+.auth-page form {
+}
+
+.auth-form {
+  display: block;
+  width: 1000px;
+  height: 250px;
+  border: 0.1px solid gray;
+  justify-content: center;
+}
+
+.auth-page input {
+  font-size: 1.25rem;
+  display: inline-block;
+  width: 80%;
+  height: auto;
+  border: 1px gray solid;
+  border-color: #c5c5c5;
+  margin: 5px;
+  padding: .75rem;
+  border-radius: .25rem;
+}
+
+.auth-page input[type="submit"] {
+  background-color: #2ab27b;
+}
+
+
+/*LEFT NAV*/
+
+.channel-panel h3 {
+  color: #ab9ba9;
+  font-weight: bolder;
+}
+
+.channel-panel h3:hover {
+  color: white;
 }

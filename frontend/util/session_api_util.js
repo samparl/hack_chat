@@ -11,7 +11,7 @@ module.exports = {
       success,
       error(xhr) {
         const errors = xhr.responseJSON;
-        error("signup", errors);
+        error("Sign Up", errors);
       }
     });
   },
@@ -26,7 +26,7 @@ module.exports = {
       success,
       error(xhr) {
         const errors = xhr.responseJSON;
-        error("login", errors);
+        error("Log In", errors);
       }
     });
   },

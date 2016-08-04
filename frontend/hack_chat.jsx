@@ -4,7 +4,8 @@ const React = require('react'),
       ReactDOM = require('react-dom'),
       IndexComponent = require('./components/index_component'),
       LoginForm = require('./components/forms/login_form'),
-      SignUpForm = require('./components/forms/signup_form');
+      SignUpForm = require('./components/forms/signup_form'),
+      SessionActions = require('./actions/session_actions');
 
 const App = React.createClass({
   render() {
@@ -57,5 +58,8 @@ const routes = (
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("content");
+  if(window.currentUser){
+    SessionActions.receiveCurrentUser(window.currentUser);
+  }
   ReactDOM.render(<Router history={ hashHistory } routes={ routes } />, root);
 });

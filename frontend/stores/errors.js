@@ -33,7 +33,6 @@ ErrorStore.form = function() {
 };
 
 ErrorStore.__onDispatch =function(payload) {
-  // debugger
   switch (payload.actionType) {
     case ErrorConstants.SET_ERRORS:
       _setErrors(payload);
