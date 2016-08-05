@@ -1,4 +1,5 @@
 const React = require('react');
+const SessionConstants = require('../constants/session_constants');
 
 module.exports = {
   signUp(user, success, error) {
@@ -11,7 +12,7 @@ module.exports = {
       success,
       error(xhr) {
         const errors = xhr.responseJSON;
-        error("Sign Up", errors);
+        error(SessionConstants.signup, errors);
       }
     });
   },
@@ -26,7 +27,7 @@ module.exports = {
       success,
       error(xhr) {
         const errors = xhr.responseJSON;
-        error("Log In", errors);
+        error(SessionConstants.login, errors);
       }
     });
   },

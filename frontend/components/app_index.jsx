@@ -15,7 +15,9 @@ module.exports = React.createClass({
     }
 
     return(
-      <LeftNav />
+      <div>
+        <LeftNav />
+      </div>
     );
   }
 });
