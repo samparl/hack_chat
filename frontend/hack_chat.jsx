@@ -5,12 +5,15 @@ const React = require('react'),
       IndexComponent = require('./components/index_component'),
       LoginForm = require('./components/forms/login_form'),
       SignUpForm = require('./components/forms/signup_form'),
-      SessionActions = require('./actions/session_actions');
+      SessionActions = require('./actions/session_actions'),
+      Modal = require('./components/modals/modal');
 
 const App = React.createClass({
   render() {
+    let content = <div>Hello</div>;
     return (
       <div>
+        <Modal content={ content }/>
         {this.props.children}
       </div>
     );

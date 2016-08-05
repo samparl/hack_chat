@@ -29,6 +29,7 @@ const SessionActions = {
   },
 
   logOut() {
+    debugger
     SessionApiUtil.logOut(
       SessionActions.removeCurrentUser,
       ErrorActions.setErrors

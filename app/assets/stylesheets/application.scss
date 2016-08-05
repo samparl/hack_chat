@@ -54,6 +54,24 @@ html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
   font-family: lato-light;
 }
 
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+}
+
+.modal-content {
+  position: absolute;
+  background-color: red;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* line 61, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 h2 {
   font-size: xx-large;
@@ -188,6 +206,6 @@ li.channel-index-item:before {
 }
 
 /* line 174, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-.channel-panel h3:hover {
+.channel-panel h4:hover {
   color: white;
 }
