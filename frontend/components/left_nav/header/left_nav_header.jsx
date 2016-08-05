@@ -15,26 +15,29 @@ const LeftHeader = React.createClass({
 
   openDropdown(e) {
     e.preventDefault();
-    this.dropDownListener = window.addEventListener("click", this.closeDropdown);
-    // debugger
     if(!this.state.dropdown) {
+      e.stopPropagation();
       this.setState({
         dropdown: true
       });
     }
+    this.dropDownListener = window.addEventListener("click", this.closeDropdown);
+    // debugger
   },
-  // 
-  // closeDropdown(e) {
-  //   e.preventDefault();
-  //   // debugger
-  //   if(this.state.dropdown) {
-  //     window.removeEventListener("click", this.closeDropdown);
-  //
-  //     this.setState({
-  //       dropdown: false
-  //     });
-  //   }
-  // },
+
+  closeDropdown(e) {
+    e.preventDefault();
+    // debugger
+    if(this.state.dropdown) {
+      window.removeEventListener("click", this.closeDropdown);
+
+      this.setState({
+        dropdown: false
+      });
+    }
+
+    return false;
+  },
 
   render() {
     let dropdown;
