@@ -6,14 +6,23 @@ const React = require('react'),
       LoginForm = require('./components/forms/login_form'),
       SignUpForm = require('./components/forms/signup_form'),
       SessionActions = require('./actions/session_actions'),
-      Modal = require('./components/modals/modal');
+      Modal = require('./components/modals/modal'),
+      ModalConductorUtil = require('./util/modal_conductor_util'),
+      ModalStore = require('./stores/modals'),
+      ModalActions = require('./actions/modal_actions'),
+      ChannelModal = require('./components/modals/add_channel_modal'),
+      ChannelStore = require('./stores/channels');
+
+window.ModalStore = ModalStore;
+window.ChannelStore = ChannelStore;
+window.ModalActions = ModalActions;
 
 const App = React.createClass({
   render() {
     let content = <div>Hello</div>;
     return (
       <div>
-        <Modal content={ content }/>
+        <ModalConductorUtil />
         {this.props.children}
       </div>
     );
