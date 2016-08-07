@@ -1,5 +1,5 @@
 const React = require('react');
-const ChannelIndex = require('./channel_panel/channel_index');
+const SubscribedChannelIndex = require('./channel_panel/subscribed_channel_index');
 const ChannelPanel = require('./channel_panel/panel');
 const LeftHeader = require('./header/left_nav_header');
 

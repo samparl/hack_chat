@@ -49,6 +49,7 @@ const LeftHeader = React.createClass({
     return(
       <div className="left-header" onClick={ this.openDropdown }>
         <h3 className="team">Team Header &#9660;</h3>
+        <h3 className="user">{currentUser.email}</h3>
         { dropdown }
       </div>
     );

@@ -4,7 +4,7 @@ const ChannelStore = require('../../../stores/channels');
 const ChannelActions = require('../../../actions/channel_actions');
 const ChannelIndexItem = require('./channel_index_item');
 
-const ChannelIndex = React.createClass({
+const UnsubscribedChannelIndex = React.createClass({
   getInitialState() {
     return({
       channels: []
@@ -12,9 +12,8 @@ const ChannelIndex = React.createClass({
   },
 
   _onChange() {
-    // debugger
     this.setState({
-      channels: ChannelStore.all()
+      channels: ChannelStore.unsubscribed()
     });
   },
 
@@ -28,13 +27,12 @@ const ChannelIndex = React.createClass({
   },
 
   render() {
-
     return(
       <div className="channel-index">
         <ul>
           {
             this.state.channels.map(function(channel, i) {
-              return <ChannelIndexItem key={ i }channel={ channel } />;
+              return <ChannelIndexItem key={ i } channel={ channel } />;
             })
           }
         </ul>
@@ -43,4 +41,4 @@ const ChannelIndex = React.createClass({
   }
 });
 
-module.exports = ChannelIndex;
+module.exports = UnsubscribedChannelIndex;

@@ -1,4 +1,4 @@
-const ChannelIndex = require('./channel_index');
+const SubscribedChannelIndex = require('./subscribed_channel_index');
 const ChannelTitle = require('./channel_title');
 const React = require('react');
 
@@ -7,7 +7,9 @@ module.exports = React.createClass({
     return(
       <div className="channel-panel">
         <ChannelTitle />
-        <ChannelIndex />
+        <div className="panel-content">
+          <SubscribedChannelIndex />
+        </div>
       </div>
     );
   }

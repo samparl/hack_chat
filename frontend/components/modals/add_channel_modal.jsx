@@ -2,18 +2,21 @@ const React = require('react');
 const Modal = require('./modal');
 const ChannelStore = require('../../stores/channels');
 const ModalActions = require('../../actions/modal_actions');
-const ChannelIndex = require('../left_nav/channel_panel/channel_index');
+const SubscribedChannelIndex = require('../left_nav/channel_panel/subscribed_channel_index');
+const UnsubscribedChannelIndex = require('../left_nav/channel_panel/unsubscribed_channel_index');
 
 module.exports = React.createClass({
   getInitialState() {
     return({
-      channels: ChannelStore.all()
+      subscribedChannels: ChannelStore.subscribed(),
+      unsubscribedChannels: ChannelStore.unsubscribed()
     });
   },
 
   componentDidMount() {
     this.setState({
-      channels: ChannelStore.all()
+      unsubscribedChannels: ChannelStore.unsubscribed(),
+      subscribedChannels: ChannelStore.subscribed()
     });
   },
 
@@ -26,10 +29,13 @@ module.exports = React.createClass({
     let contents = (
       <div className="channel-modal">
         <button className="close" onClick={ this.closeModal }/>
-        <h2>Browse all {this.state.channels.length} channels</h2>
-        <ChannelIndex />
+        <h2>Browse all {
+            this.state.subscribedChannels.length + this.state.unsubscribedChannels.length
+          } channels</h2>
         <h3>Channels you can join</h3>
+        <UnsubscribedChannelIndex />
         <h3>Channels you belong to</h3>
+        <SubscribedChannelIndex />
       </div>
     );
 

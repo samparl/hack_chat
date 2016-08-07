@@ -2,21 +2,36 @@ const AppDispatcher = require('../dispatcher/dispatcher');
 const Store = require('flux/utils').Store;
 const ChannelConstants = require('../constants/channel_constants');
 
-var _channels = {};
+var _channels = {
+  subscribed: {},
+  unsubscribed: {}
+};
 
 const ChannelStore = new Store(AppDispatcher);
 
-ChannelStore.all = function() {
-  return Object.keys(_channels).map(function(key) {
-    return _channels[key];
+ChannelStore.subscribed = function() {
+  return Object.keys(_channels.subscribed).map(function(key) {
+    return _channels.subscribed[key];
+  });
+};
+
+ChannelStore.unsubscribed = function() {
+  return Object.keys(_channels.unsubscribed).map(function(key) {
+    return _channels.unsubscribed[key];
   });
 };
 
 ChannelStore.resetChannels = function(channels) {
-  _channels = {};
-  channels.forEach(function(channel) {
-    _channels[channel.id] = channel;
+  _channels.subscribed = {};
+  channels.subscribed.forEach(function(channel) {
+    _channels.subscribed[channel.id] = channel;
   });
+
+  _channels.unsubscribed = {};
+  channels.unsubscribed.forEach(function(channel) {
+    _channels.unsubscribed[channel.id] = channel;
+  });
+  // debugger
 };
 
 const addChannel = function(channel) {
@@ -24,7 +39,6 @@ const addChannel = function(channel) {
 };
 
 ChannelStore.__onDispatch = function(payload) {
-  // debugger
   switch (payload.actionType) {
     case ChannelConstants.CHANNELS_RECEIVED:
       ChannelStore.resetChannels(payload.channels);
