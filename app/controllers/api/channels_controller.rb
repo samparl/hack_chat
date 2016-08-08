@@ -1,33 +1,17 @@
 class Api::ChannelsController < ApplicationController
   def index
-    # debugger
-    # query = ["SELECT ch.id
-    #   ,ch.title
-    #   ,uc.user_id
-    #   ,CASE WHEN uc.user_id IS NULL THEN FALSE ELSE TRUE END AS is_subscribed
-    # FROM channels AS ch
-    # LEFT OUTER JOIN user_channels AS uc
-    #   ON uc.channel_id = ch.id
-    # WHERE uc.user_id = :user_id", { :user_id => params[:user][:id] }]
-    #
-    # @channels = Channel.find_by_sql(query)
-    # @channels= params[:user][:subscribed] ?
-    #   Channel.includes(:users)
-    #     .where(users: {id: params[:user][:id]})
-    #   : Channel.includes(:users)
-    #     .where.not(users: {id: params[:user][:id]})
-
       @channels = {}
 
-      @channels[:subscribed] = Channel
-        .includes(:user_channels)
-        .where(user_channels: {user_id: current_user.id})
+      @channels[:subscribed] = current_user.channels
+      # Channel
+      #   .includes(:user_channels)
+      #   .where(user_channels: {user_id: current_user.id})
 
-      @channels[:unsubscribed] = Channel
-        .joins("LEFT JOIN user_channels ON user_channels.channel_id = channels.id")
-        .where("user_channels.user_id IS NULL OR user_channels.user_id != ?", current_user.id)
-      # debugger
-    # @channels = Channel.all
+      @channels[:unsubscribed] = Channel.where.not(id: current_user.channel_ids)
+      # Channel
+      #   .joins("LEFT JOIN user_channels ON user_channels.channel_id = channels.id")
+      #   .where("user_channels.user_id IS NULL OR user_channels.user_id != ?", current_user.id)
+
   end
 
   def show
@@ -40,6 +24,24 @@ class Api::ChannelsController < ApplicationController
 
     if @channel.save
       render :show
+    else
+      render(
+        json: @channel.errors.messages,
+        status: 422
+      )
+    end
+  end
+
+  def update
+    @channel = Channel.find(params[:id])
+
+    if !@channel
+      render(
+        json: {base: ['Channel not found']},
+        status: 401
+      )
+    elsif @channel.users << current_user
+      render json: @channel
     else
       render(
         json: @channel.errors.messages,

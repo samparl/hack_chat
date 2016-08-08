@@ -9,7 +9,9 @@ module.exports = React.createClass({
 
   render() {
     return(
-      <span className="title" onClick={ this.openChannelModal }>CHANNELS</span>
+      <span className="title" onClick={ this.openChannelModal }>
+        CHANNELS ({this.props.count})
+      </span>
     );
   }
 });

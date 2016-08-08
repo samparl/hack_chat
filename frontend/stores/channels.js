@@ -4,7 +4,8 @@ const ChannelConstants = require('../constants/channel_constants');
 
 var _channels = {
   subscribed: {},
-  unsubscribed: {}
+  unsubscribed: {},
+  currentChannel: null
 };
 
 const ChannelStore = new Store(AppDispatcher);
@@ -21,6 +22,10 @@ ChannelStore.unsubscribed = function() {
   });
 };
 
+ChannelStore.currentChannel = function() {
+  return _channels.currentChannel;
+};
+
 ChannelStore.resetChannels = function(channels) {
   _channels.subscribed = {};
   channels.subscribed.forEach(function(channel) {
@@ -31,25 +36,33 @@ ChannelStore.resetChannels = function(channels) {
   channels.unsubscribed.forEach(function(channel) {
     _channels.unsubscribed[channel.id] = channel;
   });
-  // debugger
 };
 
-const addChannel = function(channel) {
-  _channel[channel.id] = channel;
+const setCurrentChannel = function(channel) {
+  _channels.currentChannel = channel;
+};
+
+const addSubscribedChannel = function(channel) {
+  _channels.subscribed[channel.id] = channel;
+  _channels.currentChannel = channel;
 };
 
 ChannelStore.__onDispatch = function(payload) {
+  // debugger
   switch (payload.actionType) {
     case ChannelConstants.CHANNELS_RECEIVED:
       ChannelStore.resetChannels(payload.channels);
       ChannelStore.__emitChange();
       break;
-    case ChannelConstants.CHANNEL_RECEIVED:
-      addChannel(payload.channel);
+    case ChannelConstants.SUBSCRIBED_CHANNEL_RECEIVED:
+      addSubscribedChannel(payload.channel);
+      ChannelStore.__emitChange();
+      break;
+    case ChannelConstants.SET_CURRENT_CHANNEL:
+      setCurrentChannel(payload.channel);
       ChannelStore.__emitChange();
       break;
     default:
-  // debugger
   }
 };
 

@@ -11,13 +11,16 @@ json.subscribed do
   json.array! @channels[:subscribed], :title, :description do |channel|
     json.title channel.title
     json.description channel.description
+    json.id channel.id
     # json.subscribed true
   end
 end
 json.unsubscribed do
   json.array! @channels[:unsubscribed], :title, :description do |channel|
+    # debugger
     json.title channel.title
     json.description channel.description
+    json.id channel.id
     # json.subscribed false
   end
 end

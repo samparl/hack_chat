@@ -11,7 +11,7 @@ module.exports = {
     });
   },
 
-  getChannel(id) {
+  getChannel(id, callback) {
     $.ajax({
       url: `api/channels/${id}`,
       method: "GET",
@@ -19,5 +19,15 @@ module.exports = {
         callback(response);
       }
     });
-  }
+  },
+
+  joinChannel(id, callback) {
+    $.ajax({
+      url: `api/channels/${id}`,
+      method: "PATCH",
+      success(response) {
+        callback(response);
+      }
+    });
+  },
 };

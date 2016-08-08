@@ -7,8 +7,15 @@ module.exports = {
     ApiUtil.fetchChannels(this.receiveChannels);
   },
 
-  getChannel(id) {
-    ApiUtil.getChannel(id, this.receiveChannel);
+  joinChannel(id, setCurrentChannel) {
+    ApiUtil.joinChannel(id, this.receiveSubscribedChannel);
+  },
+
+  setCurrentChannel(channel) {
+    AppDispatcher.dispatch({
+      actionType: ChannelConstants.SET_CURRENT_CHANNEL,
+      channel: channel
+    });
   },
 
   receiveChannels(response) {
@@ -18,10 +25,17 @@ module.exports = {
     });
   },
 
-  receiveChannel(response) {
+  receiveSubscribedChannel(response) {
     AppDispatcher.dispatch({
-      actionType: ChannelConstants.CHANNEL_RECEIVED,
+      actionType: ChannelConstants.SUBSCRIBED_CHANNEL_RECEIVED,
       channel: response
     });
-  }
+  },
+
+  // receiveChannel(response) {
+  //   AppDispatcher.dispatch({
+  //     actionType: ChannelConstants.CHANNEL_RECEIVED,
+  //     channel: response
+  //   });
+  // }
 };
