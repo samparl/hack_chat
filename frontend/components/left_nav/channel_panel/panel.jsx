@@ -5,11 +5,9 @@ const React = require('react');
 module.exports = React.createClass({
   render() {
     return(
-      <div className="channel-panel">
+      <div className="panel-content">
         <ChannelTitle />
-        <div className="panel-content">
-          <SubscribedChannelIndex />
-        </div>
+        <SubscribedChannelIndex />
       </div>
     );
   }

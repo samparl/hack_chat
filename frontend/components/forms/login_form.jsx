@@ -8,7 +8,7 @@ module.exports = React.createClass({
     return(
       <article>
         <h2>Sign in to hack chat</h2>
-        <span>Enter your email address and password</span>
+        <span className="group">Enter your email address and password</span>
         <UserForm form={ SessionConstants.login } callback={ SessionActions.logIn }/>
       </article>
     );

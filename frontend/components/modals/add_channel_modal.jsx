@@ -28,7 +28,12 @@ module.exports = React.createClass({
 
     let contents = (
       <div className="channel-modal">
-        <button className="close" onClick={ this.closeModal }/>
+        <div className="circle">
+          <button className="close" onClick={ this.closeModal }/>
+          <p>
+            esc
+          </p>
+        </div>
         <h2>Browse all {
             this.state.subscribedChannels.length + this.state.unsubscribedChannels.length
           } channels</h2>

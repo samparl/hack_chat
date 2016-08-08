@@ -21,11 +21,11 @@ class Api::ChannelsController < ApplicationController
 
       @channels[:subscribed] = Channel
         .includes(:user_channels)
-        .where(user_channels: {user_id: params[:user][:id]})
+        .where(user_channels: {user_id: current_user.id})
 
       @channels[:unsubscribed] = Channel
         .joins("LEFT JOIN user_channels ON user_channels.channel_id = channels.id")
-        .where("user_channels.user_id IS NULL OR user_channels.user_id != ?", params[:user][:id])
+        .where("user_channels.user_id IS NULL OR user_channels.user_id != ?", current_user.id)
       # debugger
     # @channels = Channel.all
   end

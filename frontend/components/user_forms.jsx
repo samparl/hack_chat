@@ -2,9 +2,10 @@
 
 const React = require('react');
 const SessionStore = require('../stores/sessions');
-const AppIndex = require('./app_index');
+const Main = require('./main');
 const LoginForm = require('./forms/login_form');
 const SignUpForm = require('./forms/signup_form');
+const ExternalHeader = require('./external_header');
 
 module.exports = React.createClass({
   getInitialState() {
@@ -34,6 +35,7 @@ module.exports = React.createClass({
 
     return(
       <div className="auth-page">
+        <ExternalHeader />
         { form }
         <button onClick={ this._onClick }>{ link_text }</button>
       </div>

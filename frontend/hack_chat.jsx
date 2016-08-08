@@ -2,7 +2,7 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 
 const React = require('react'),
       ReactDOM = require('react-dom'),
-      IndexComponent = require('./components/index_component'),
+      Authentication = require('./components/authentication'),
       LoginForm = require('./components/forms/login_form'),
       SignUpForm = require('./components/forms/signup_form'),
       SessionActions = require('./actions/session_actions'),
@@ -61,7 +61,7 @@ const App = React.createClass({
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={ IndexComponent } />
+    <IndexRoute component={ Authentication } />
     <Route path="login" component={ LoginForm } />
     <Route path="signup" component={ SignUpForm } />
   </Route>

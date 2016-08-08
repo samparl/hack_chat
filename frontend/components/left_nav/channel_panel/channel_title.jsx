@@ -9,7 +9,7 @@ module.exports = React.createClass({
 
   render() {
     return(
-      <h4 className="title" onClick={ this.openChannelModal }>CHANNELS</h4>
+      <span className="title" onClick={ this.openChannelModal }>CHANNELS</span>
     );
   }
 });

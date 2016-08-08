@@ -4,6 +4,30 @@ const ChannelPanel = require('./channel_panel/panel');
 const LeftHeader = require('./header/left_nav_header');
 
 module.exports = React.createClass({
+  // getInitialState() {
+  //   return({
+  //     channels: []
+  //   });
+  // },
+  //
+  // _onChange() {
+  //   this.setState({
+  //     channels: ChannelStore.subscribed()
+  //   });
+  // },
+  //
+  // openChannelModal() {
+  //   ModalActions.displayModal(ChannelModal);
+  // },
+  //
+  // componentDidMount() {
+  //   ChannelActions.fetchChannels();
+  //   this.channelsListener = ChannelStore.addListener(this._onChange);
+  // },
+  //
+  // componentWillUnmount() {
+  //   this.channelsListener.remove();
+  // },
 
   render() {
     return(

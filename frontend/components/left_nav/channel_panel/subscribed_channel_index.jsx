@@ -7,13 +7,20 @@ const ChannelIndexItem = require('./channel_index_item');
 const ChannelIndex = React.createClass({
   getInitialState() {
     return({
-      channels: []
+      channels: [],
+      selected: null
     });
   },
 
   _onChange() {
     this.setState({
       channels: ChannelStore.subscribed()
+    });
+  },
+
+  _onClick(key) {
+    this.setState({
+      selected: key
     });
   },
 
@@ -27,13 +34,29 @@ const ChannelIndex = React.createClass({
   },
 
   render() {
+    let channels = this.state.channels.map(function(channel, i) {
+
+      let selected;
+      if(this.state.selected === i) {
+        selected = " selected";
+      } else {
+        selected = " unselected";
+      }
+
+      return (
+        <li key={ i }
+          onClick={ () => this._onClick(i) }
+          className={ "channel-index-item"  + selected }>
+          { channel.title }
+        </li>
+      );
+    }.bind(this));
+
     return(
       <div className="channel-index">
         <ul>
           {
-            this.state.channels.map(function(channel, i) {
-              return <ChannelIndexItem key={ i } channel={ channel } />;
-            })
+            channels
           }
         </ul>
       </div>

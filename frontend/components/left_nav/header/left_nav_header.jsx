@@ -1,6 +1,7 @@
 const React = require('react');
 const SessionActions = require('../../../actions/session_actions');
 const Dropdown = require('./dropdown.jsx');
+const SessionStore = require('../../../stores/sessions');
 
 const LeftHeader = React.createClass({
   getInitialState() {
@@ -9,9 +10,9 @@ const LeftHeader = React.createClass({
     });
   },
 
-  // _stopClick(e) {
-  //   e.stopPropagation();
-  // },
+  componentWillUnmount() {
+    window.removeEventListener("click", this.closeDropdown);
+  },
 
   openDropdown(e) {
     e.preventDefault();
@@ -21,13 +22,11 @@ const LeftHeader = React.createClass({
         dropdown: true
       });
     }
-    this.dropDownListener = window.addEventListener("click", this.closeDropdown);
-    // debugger
+    window.addEventListener("click", this.closeDropdown);
   },
 
   closeDropdown(e) {
     e.preventDefault();
-    // debugger
     if(this.state.dropdown) {
       window.removeEventListener("click", this.closeDropdown);
 
@@ -41,7 +40,6 @@ const LeftHeader = React.createClass({
 
   render() {
     let dropdown;
-    // debugger
     if(this.state.dropdown) {
       dropdown = <Dropdown />;
     }
@@ -49,7 +47,7 @@ const LeftHeader = React.createClass({
     return(
       <div className="left-header" onClick={ this.openDropdown }>
         <h3 className="team">Team Header &#9660;</h3>
-        <h3 className="user">{currentUser.email}</h3>
+        <h3 className="user">{SessionStore.currentUser().email}</h3>
         { dropdown }
       </div>
     );

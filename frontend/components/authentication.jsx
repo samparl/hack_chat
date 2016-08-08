@@ -1,8 +1,7 @@
 const React = require('react');
 const SessionStore = require('../stores/sessions');
-const AppIndex = require('./app_index');
-const AuthenticationIndex = require('./authentication_index');
-// const LoginForm = require('./forms/login_form');
+const Main = require('./main');
+const UserForms = require('./user_forms');
 
 module.exports = React.createClass({
   getInitialState() {
@@ -26,10 +25,16 @@ module.exports = React.createClass({
   },
 
   render() {
+    let page;
     if(this.state.status) {
-      return <AppIndex />;
+      page = <Main />;
     } else {
-      return <AuthenticationIndex />;
+      page = <UserForms />;
     }
+    return (
+      <div>
+        { page }
+      </div>
+    );
   }
 });
