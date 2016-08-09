@@ -1,5 +1,5 @@
 const React = require('react');
-const ErrorStore = require('../../stores/errors_store');
+const ErrorStore = require('../../stores/error_store');
 const ErrorActions = require('../../actions/error_actions');
 
 module.exports = React.createClass({

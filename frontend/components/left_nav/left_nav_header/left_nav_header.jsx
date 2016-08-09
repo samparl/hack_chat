@@ -1,7 +1,7 @@
 const React = require('react');
 const SessionActions = require('../../../actions/session_actions');
 const Dropdown = require('./dropdown.jsx');
-const SessionStore = require('../../../stores/sessions_store');
+const SessionStore = require('../../../stores/session_store');
 
 const LeftHeader = React.createClass({
   getInitialState() {

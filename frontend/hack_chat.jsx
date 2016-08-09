@@ -8,10 +8,12 @@ const React = require('react'),
       SessionActions = require('./actions/session_actions'),
       ModalConductorUtil = require('./util/modal_conductor_util'),
       ApiUtil = require('./util/api_util'),
-      MessageActions = require('./actions/message_actions');
+      MessageActions = require('./actions/message_actions'),
+      MessagesStore = require('./stores/message_store');
 
 window.ApiUtil = ApiUtil;
 window.MessageActions = MessageActions;
+window.MessageStore = MessagesStore;
 
 const App = React.createClass({
   render() {

@@ -1,5 +1,5 @@
 const React = require('react');
-const SessionStore = require('../stores/sessions_store');
+const SessionStore = require('../stores/session_store');
 const Main = require('./main');
 const UserForms = require('./user_forms');
 

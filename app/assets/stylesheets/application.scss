@@ -11,7 +11,6 @@
  * file per style scope.
  *
 
-
  */
 @font-face {
   font-family: "lato-regular";
@@ -21,10 +20,7 @@
   font-family: "lato-light";
   src: url(/assets/fonts/Lato/Lato-Light-e9d59afb6d9cb9cf6e8d8159d4639d5b577e29efc64a15182f228659cfc1e818.ttf);
 }
-/* line 30, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 26, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 27, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 28, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 25, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
   margin: 0;
   padding: 0;
@@ -38,59 +34,51 @@ html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
   -webkit-appearance: none;
 }
 
-/* line 42, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 39, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 41, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 43, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 38, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 ::-webkit-input-placeholder {
   font-family: lato-light;
 }
 
-/* line 47, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 44, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 47, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 50, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 42, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 :-moz-input-placeholder {
   font-family: lato-light;
 }
 
-/* line 52, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 49, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 53, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 57, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 46, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 ::-moz-input-placeholder {
   font-family: lato-light;
 }
 
-/* line 57, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 54, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 59, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 64, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 50, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 :-ms-input-placeholder {
   font-family: lato-light;
 }
 
-/* line 69, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 54, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 body {
   background: #f9f9f9;
 }
 
-/* line 77, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 58, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+h2 {
+  font-size: xx-large;
+}
+
+/* line 62, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .group {
   content: "";
   display: block;
   clear: both;
 }
 
+/* line 68, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .h-center {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* line 58, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 64, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 85, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 74, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .modal {
   position: fixed;
   left: 0;
@@ -101,9 +89,7 @@ body {
   z-index: 1001;
 }
 
-/* line 68, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 75, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 97, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 84, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .modal-box {
   position: absolute;
   top: 50%;
@@ -111,17 +97,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* line 75, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 83, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 106, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-.close::after {
-  // content: "\D7";
-}
-
-/* line 85, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 90, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 115, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-
+/* line 91, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .modal .circle-button {
   height: 4rem;
   width: 4rem;
@@ -132,12 +108,14 @@ body {
   margin-right: 3rem;
 }
 
+/* line 101, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .modal .circle-button:hover {
   background: #ccc;
 }
 
+/* line 105, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .modal .close {
-  background: asset-url('close_icon.png');
+  background: url(/assets/close_icon-c7d980885cf3a703908ede6b9d64a78e6bcb329c0b32dda050a83563d7ec2b8a.png);
   width: 3rem;
   height: 3rem;
   border: none;
@@ -147,14 +125,13 @@ body {
   left: .4rem;
 }
 
+/* line 116, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .modal .circle-button p {
   position: absolute;
   top: 1.2rem;
   left: 1.2rem;
 }
 
-/* line 91, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 96, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 122, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .channel-modal {
   height: 100vh;
@@ -164,29 +141,24 @@ body {
   justify-content: center;
 }
 
+/* line 130, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .modal .modal-header {
   width: 100%;
   position: fixed;
   padding-top: 1rem;
 }
 
+/* line 136, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .modal .modal-header h2 {
   text-align: center;
 }
 
+/* line 140, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .channel-modal .channel-block {
   margin-top: 5rem;
 }
 
-/* line 61, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 100, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 106, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 133, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-h2 {
-  font-size: xx-large;
-}
-
-/* line 137, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 144, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .fixed {
   position: fixed;
   width: 100%;
@@ -196,12 +168,12 @@ h2 {
   border-bottom: 1px solid #ccc;
 }
 
-/* line 146, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 153, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .header .logo {
   float: left;
 }
 
-/* line 150, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 157, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .header button {
   float: right;
   padding: 10px 15px;
@@ -210,20 +182,14 @@ h2 {
   color: #fff;
 }
 
-/* line 65, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 105, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 112, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 161, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 165, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .auth-page {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* line 71, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 112, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 120, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 170, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 171, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .centered {
   display: inline-block;
   flex-shrink: 1;
@@ -239,20 +205,17 @@ h2 {
   text-align: center;
 }
 
-/* line 185, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 186, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .centered h2 {
   padding-bottom: 10px;
 }
 
-/* line 189, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 190, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .auth-page span {
   padding-bottom: 10px;
 }
 
-/* line 93, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 133, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 143, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 205, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 194, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .auth-form {
   display: block;
   width: 1000px;
@@ -261,10 +224,7 @@ h2 {
   justify-content: center;
 }
 
-/* line 101, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 142, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 153, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 216, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 202, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .auth-page input {
   font-size: 1.25rem;
   display: inline-block;
@@ -277,57 +237,48 @@ h2 {
   border-radius: .25rem;
 }
 
-/* line 113, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 155, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 167, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 231, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 214, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .auth-page input[type="submit"] {
   background-color: #2ab27b;
   color: #fff;
 }
 
+// MAIN APPLICATION
+
+.main-screen {
+    display: flex;
+}
+
 /*LEFT NAV*/
-/* line 120, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 161, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 174, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 239, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 220, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 div.left-nav {
   display: block;
   background-color: #4d394b;
-  width: 220px;
+  width: 14rem;
   height: 100vh;
-  float: left;
+  flex-basis: 14rem;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
-/* line 128, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 170, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 184, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 250, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 228, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .left-header {
   position: relative;
   height: 60px;
   padding: 10px 15px 30px 15px;
 }
 
-/* line 133, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 177, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 192, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 259, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 234, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .left-header:hover {
   background-color: #3e313c;
 }
 
-/* line 181, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 197, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 265, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 238, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .left-header:hover .user {
   color: white;
 }
 
-/* line 137, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 186, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 203, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 272, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 242, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .dropdown {
   position: absolute;
   top: 40px;
@@ -340,10 +291,7 @@ div.left-nav {
   border-radius: 5px;
 }
 
-/* line 148, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 199, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 217, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 287, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 254, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .dropdown li {
   max-height: 100px;
   width: 250px;
@@ -354,48 +302,34 @@ div.left-nav {
   border-radius: 5px;
 }
 
-/* line 209, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 228, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 299, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 264, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .dropdown li:hover {
   background-color: #3AA3E3;
 }
 
-/* line 154, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 214, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 235, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 306, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 268, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content {
   padding-top: 10px;
 }
 
-/* line 239, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 311, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 272, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content li, .panel-content span {
   padding-left: 15px;
   padding-top: 2px;
   padding-bottom: 2px;
 }
 
-/* line 170, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 249, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 247, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 320, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 278, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content .title {
   color: #ab9ba9;
 }
 
-/* line 174, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 254, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 253, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 327, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 282, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content .title:hover {
   color: white;
 }
 
-/* line 220, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 263, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 335, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 286, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content .channel-index-item {
   color: #ab9ba9;
   display: block;
@@ -405,63 +339,63 @@ div.left-nav {
   height: 1.5rem;
 }
 
+/* line 295, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content .channel-index-item button {
   display: none;
   float: right;
   margin-right: .25rem;
-  background: asset-url('remove_icon.png');
+  background: url(/assets/remove_icon-e71daa026ee42efeff3005481ceb41b33dbc64bbbaa4075e4638773c621fe729.png);
   background-size: contain;
   height: 1rem;
   width: 1rem;
 }
 
-
-/* line 161, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 213, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 230, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 275, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 348, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 305, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content .channel-index-item:before {
   content: "# ";
 }
 
-/* line 233, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 280, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 354, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 309, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content .unselected.channel-index-item:hover {
   background-color: #3E313C;
 }
 
+/* line 313, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content .channel-index-item:hover button {
   display: block;
-  // background: asset-url('remove_icon.png');
 }
 
-// .panel-content .selected.channel-index-item:hover button {
-//   display: block;
-//   background: asset-url('remove_icon.png');
-// }
-
-/* line 257, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 359, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 317, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content .selected {
   background-color: #4C9689;
   color: white;
 }
 
-/* line 165, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 238, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 287, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 367, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 322, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .left-nav .team {
   color: white;
   font-weight: bolder;
 }
 
-/* line 243, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 293, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-/* line 374, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+/* line 327, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .left-nav .user {
   color: #ab9ba9;
   font-weight: bold;
+}
+
+/* line 332, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
+.content-pane {
+  background: yellow;
+  height: 100vh;
+  width: 100%;
+  min-width: 440px;
+  display: block;
+}
+
+.content-header {
+    height: 4rem;
+}
+
+.messages-display {
+    height: 100%;
 }

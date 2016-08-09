@@ -1,7 +1,8 @@
 const React = require('react');
 const LeftNav = require('./left_nav/left_nav');
+const ContentPane = require('./content_pane/content_pane');
 const ErrorActions = require('../actions/error_actions');
-const ErrorStore = require('../stores/errors_store');
+const ErrorStore = require('../stores/error_store');
 
 
 module.exports = React.createClass({
@@ -15,8 +16,9 @@ module.exports = React.createClass({
     }
 
     return(
-      <div>
+      <div className="main-screen">
         <LeftNav />
+        <ContentPane />
       </div>
     );
   }

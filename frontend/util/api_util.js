@@ -1,4 +1,4 @@
-const SessionStore = require('../stores/sessions_store');
+const SessionStore = require('../stores/session_store');
 
 module.exports = {
   fetchChannels(callback) {
