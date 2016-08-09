@@ -23,11 +23,23 @@ module.exports = {
 
   joinChannel(id, callback) {
     $.ajax({
-      url: `api/channels/${id}`,
+      url: `api/channels/${id}/subscribe`,
       method: "PATCH",
+      // data: {join: true},
       success(response) {
         callback(response);
       }
     });
   },
+
+  leaveChannel(id, callback) {
+    $.ajax({
+      url: `api/channels/${id}/unsubscribe`,
+      method: "PATCH",
+      // data: {join: false},
+      success(response) {
+        callback(response);
+      }
+    });
+  }
 };

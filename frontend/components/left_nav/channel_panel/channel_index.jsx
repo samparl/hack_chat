@@ -33,11 +33,20 @@ const ChannelIndex = React.createClass({
     if(this.props.modal) ModalActions.removeModal();
   },
 
+  _leaveChannel(e, channel_key) {
+    // debugger
+    e.stopPropagation();
+    ChannelActions.leaveChannel(
+      this.props.channels[channel_key].id
+    );
+  },
+
   render() {
+    // debugger
     let channels = this.props.channels.map(function(channel, i) {
 
       let selected;
-      if(this.state.selected === i) {
+      if(this.state.selected === channel.id) {
         selected = " selected";
       } else {
         selected = " unselected";
@@ -48,6 +57,7 @@ const ChannelIndex = React.createClass({
           onClick={ () => this._onClick(i) }
           className={ "channel-index-item"  + selected }>
           { channel.title }
+          <button className="remove-channel" onClick={ (e) => this._leaveChannel(e, i) }></button>
         </li>
       );
     }.bind(this));

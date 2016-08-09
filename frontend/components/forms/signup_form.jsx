@@ -6,7 +6,7 @@ const SessionConstants = require('../../constants/session_constants');
 module.exports = React.createClass({
   render() {
     return(
-      <article>
+      <article className="centered">
         <h2>Sign up here</h2>
         <UserForm form={ SessionConstants.signup } callback={ SessionActions.signUp }/>
       </article>

@@ -7,6 +7,22 @@
 
 # debugger
 
+json.channels do
+  json.array! @channels[:subscribed], :title, :descripton, :subscribed do |channel|
+    json.title channel.title
+    json.description channel.description
+    json.id channel.id
+    json.subscribed true
+  end
+
+  json.array! @channels[:unsubscribed], :title, :descripton, :subscribed do |channel|
+    json.title channel.title
+    json.description channel.description
+    json.id channel.id
+    json.subscribed false
+  end
+end
+
 json.subscribed do
   json.array! @channels[:subscribed], :title, :description do |channel|
     json.title channel.title

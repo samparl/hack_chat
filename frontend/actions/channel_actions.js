@@ -2,19 +2,31 @@ const ApiUtil = require('../util/api_util');
 const AppDispatcher = require('../dispatcher/dispatcher');
 const ChannelConstants = require('../constants/channel_constants');
 
-module.exports = {
+const ChannelActions = {
   fetchChannels() {
     ApiUtil.fetchChannels(this.receiveChannels);
   },
 
   joinChannel(id, setCurrentChannel) {
-    ApiUtil.joinChannel(id, this.receiveSubscribedChannel);
+    ApiUtil.joinChannel(id, ChannelActions.receiveSubscribedChannel);
   },
 
   setCurrentChannel(channel) {
+    // debugger
     AppDispatcher.dispatch({
       actionType: ChannelConstants.SET_CURRENT_CHANNEL,
       channel: channel
+    });
+  },
+
+  leaveChannel(channel) {
+    ApiUtil.leaveChannel(channel, this.removeChannel);
+  },
+
+  removeChannel(response) {
+    AppDispatcher.dispatch({
+      actionType: ChannelConstants.REMOVE_CHANNEL,
+      channel: response
     });
   },
 
@@ -39,3 +51,5 @@ module.exports = {
   //   });
   // }
 };
+
+module.exports = ChannelActions;

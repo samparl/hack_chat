@@ -82,6 +82,12 @@ body {
   clear: both;
 }
 
+.h-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* line 58, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 64, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 85, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
@@ -120,18 +126,31 @@ body {
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
-  background: #ccc;
   text-align: center;
   float: right;
+  position: relative;
+  margin-right: 3rem;
+}
+
+.modal .circle-button:hover {
+  background: #ccc;
 }
 
 .modal .close {
   background: asset-url('close_icon.png');
-  width: 10px;
-  height: 10px;
+  width: 3rem;
+  height: 3rem;
   border: none;
-  background-attachment: fixed;
-  background-position: center;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: .4rem;
+}
+
+.modal .circle-button p {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
 }
 
 /* line 91, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
@@ -143,6 +162,20 @@ body {
   background-color: white;
   padding: 1%;
   justify-content: center;
+}
+
+.modal .modal-header {
+  width: 100%;
+  position: fixed;
+  padding-top: 1rem;
+}
+
+.modal .modal-header h2 {
+  text-align: center;
+}
+
+.channel-modal .channel-block {
+  margin-top: 5rem;
 }
 
 /* line 61, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
@@ -191,7 +224,7 @@ h2 {
 /* line 112, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 120, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 170, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-.auth-page article {
+.centered {
   display: inline-block;
   flex-shrink: 1;
   max-width: 600px;
@@ -207,7 +240,7 @@ h2 {
 }
 
 /* line 185, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-.auth-page article h2 {
+.centered h2 {
   padding-bottom: 10px;
 }
 
@@ -372,6 +405,17 @@ div.left-nav {
   height: 1.5rem;
 }
 
+.panel-content .channel-index-item button {
+  display: none;
+  float: right;
+  margin-right: .25rem;
+  background: asset-url('remove_icon.png');
+  background-size: contain;
+  height: 1rem;
+  width: 1rem;
+}
+
+
 /* line 161, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 213, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 230, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
@@ -384,9 +428,19 @@ div.left-nav {
 /* line 233, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 280, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 354, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-.panel-content .unselected .channel-index-item:hover {
+.panel-content .unselected.channel-index-item:hover {
   background-color: #3E313C;
 }
+
+.panel-content .channel-index-item:hover button {
+  display: block;
+  // background: asset-url('remove_icon.png');
+}
+
+// .panel-content .selected.channel-index-item:hover button {
+//   display: block;
+//   background: asset-url('remove_icon.png');
+// }
 
 /* line 257, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 /* line 359, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */

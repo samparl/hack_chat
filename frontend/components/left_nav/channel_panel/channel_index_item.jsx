@@ -5,7 +5,6 @@ module.exports = React.createClass({
     return(
       <li className="channel-index-item">
         {this.props.channel.title}
-        <button className="remove-channel"></button>
       </li>
     );
   }
