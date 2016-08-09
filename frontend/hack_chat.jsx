@@ -6,16 +6,10 @@ const React = require('react'),
       LoginForm = require('./components/forms/login_form'),
       SignUpForm = require('./components/forms/signup_form'),
       SessionActions = require('./actions/session_actions'),
-      Modal = require('./components/modals/modal'),
       ModalConductorUtil = require('./util/modal_conductor_util'),
-      ModalStore = require('./stores/modals'),
-      ModalActions = require('./actions/modal_actions'),
-      ChannelModal = require('./components/modals/add_channel_modal'),
-      ChannelStore = require('./stores/channels');
+      ApiUtil = require('./util/api_util');
 
-window.ModalStore = ModalStore;
-window.ChannelStore = ChannelStore;
-window.ModalActions = ModalActions;
+window.ApiUtil = ApiUtil;
 
 const App = React.createClass({
   render() {

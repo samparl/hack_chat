@@ -1,5 +1,5 @@
 const React = require('react');
-const ModalStore = require('../stores/modals');
+const ModalStore = require('../stores/modals_store');
 
 module.exports = React.createClass({
   getInitialState(){

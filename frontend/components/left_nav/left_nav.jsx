@@ -1,7 +1,7 @@
 const React = require('react');
 const SubscribedChannelIndex = require('./channel_panel/subscribed_channel_index');
 const ChannelPanel = require('./channel_panel/panel');
-const LeftHeader = require('./header/left_nav_header');
+const LeftHeader = require('./left_nav_header/left_nav_header');
 
 module.exports = React.createClass({
   // getInitialState() {

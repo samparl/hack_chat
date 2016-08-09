@@ -1,6 +1,6 @@
 const React = require('react');
 const Modal = require('./modal');
-const ChannelStore = require('../../stores/channels');
+const ChannelStore = require('../../stores/channels_store');
 const ModalActions = require('../../actions/modal_actions');
 const ChannelIndex = require('../left_nav/channel_panel/channel_index');
 const ChannelActions = require('../../actions/channel_actions');

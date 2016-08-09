@@ -1,4 +1,4 @@
-const SessionStore = require('../stores/sessions');
+const SessionStore = require('../stores/sessions_store');
 
 module.exports = {
   fetchChannels(callback) {
@@ -39,6 +39,16 @@ module.exports = {
       // data: {join: false},
       success(response) {
         callback(response);
+      }
+    });
+  },
+
+  fetchMessages(channel_id, callback) {
+    $.ajax({
+      url: `api/channels/${channel_id}/messages`,
+      method: "GET",
+      success(response) {
+        console.log(JSON.stringify(response));
       }
     });
   }

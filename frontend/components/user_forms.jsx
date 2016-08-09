@@ -1,7 +1,7 @@
 // POTENTIALLY DEPRECATED - SEE FRED'S "BEFORE ACTION" SOLUTION IN ENTRY FILE
 
 const React = require('react');
-const SessionStore = require('../stores/sessions');
+const SessionStore = require('../stores/sessions_store');
 const Main = require('./main');
 const LoginForm = require('./forms/login_form');
 const SignUpForm = require('./forms/signup_form');

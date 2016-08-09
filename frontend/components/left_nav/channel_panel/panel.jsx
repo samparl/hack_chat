@@ -1,6 +1,6 @@
 const ChannelIndex = require('./channel_index');
 const ChannelTitle = require('./channel_title');
-const ChannelStore = require('../../../stores/channels');
+const ChannelStore = require('../../../stores/channels_store');
 const ChannelActions = require('../../../actions/channel_actions');
 const React = require('react');
 

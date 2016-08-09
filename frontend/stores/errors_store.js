@@ -1,7 +1,7 @@
 const AppDispatcher = require('../dispatcher/dispatcher');
 const Store = require('flux/utils').Store;
 const ErrorConstants = require('../constants/error_constants');
-const SessionStore = require('./sessions');
+const SessionStore = require('./sessions_store');
 
 let _errors = {};
 let _form = "";
