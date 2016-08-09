@@ -48,7 +48,7 @@ module.exports = {
       url: `api/channels/${channel_id}/messages`,
       method: "GET",
       success(response) {
-        console.log(JSON.stringify(response));
+        callback(response);
       }
     });
   }

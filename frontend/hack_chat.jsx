@@ -7,9 +7,11 @@ const React = require('react'),
       SignUpForm = require('./components/forms/signup_form'),
       SessionActions = require('./actions/session_actions'),
       ModalConductorUtil = require('./util/modal_conductor_util'),
-      ApiUtil = require('./util/api_util');
+      ApiUtil = require('./util/api_util'),
+      MessageActions = require('./actions/message_actions');
 
 window.ApiUtil = ApiUtil;
+window.MessageActions = MessageActions;
 
 const App = React.createClass({
   render() {
