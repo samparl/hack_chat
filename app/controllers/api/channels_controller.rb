@@ -13,7 +13,7 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
     if !@channel
       render(
-      json: {base: ['Channel not found']},
+      json: { base: ['Channel not found'] },
       status: 401
       )
     elsif @channel.users << current_user

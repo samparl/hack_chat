@@ -1,12 +1,3 @@
-# json.array! @channels, :title, :description do |channel|
-#   json.title channel.title
-#   json.description channel.description
-#   json.owner_email channel.author.email
-#   # json.subscribed channel.subscribed
-# end
-
-# debugger
-
 json.channels do
   json.array! @channels[:subscribed], :title, :descripton, :subscribed do |channel|
     json.title channel.title
