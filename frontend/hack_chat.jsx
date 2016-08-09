@@ -11,7 +11,7 @@ const React = require('react'),
       ModalStore = require('./stores/modals'),
       ModalActions = require('./actions/modal_actions'),
       ChannelModal = require('./components/modals/add_channel_modal'),
-      ChannelStore = require('./stores/channels_store');
+      ChannelStore = require('./stores/channels');
 
 window.ModalStore = ModalStore;
 window.ChannelStore = ChannelStore;

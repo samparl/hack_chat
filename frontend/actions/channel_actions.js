@@ -4,29 +4,21 @@ const ChannelConstants = require('../constants/channel_constants');
 
 const ChannelActions = {
   fetchChannels() {
-    ApiUtil.fetchChannels(this.receiveChannels);
+    ApiUtil.fetchChannels(ChannelActions.receiveChannels);
   },
 
-  joinChannel(id, setCurrentChannel) {
-    ApiUtil.joinChannel(id, ChannelActions.receiveSubscribedChannel);
-  },
-
-  setCurrentChannel(channel) {
-    // debugger
-    AppDispatcher.dispatch({
-      actionType: ChannelConstants.SET_CURRENT_CHANNEL,
-      channel: channel
-    });
+  joinChannel(id) {
+    ApiUtil.joinChannel(id, ChannelActions.receiveToggledChannel);
   },
 
   leaveChannel(channel) {
-    ApiUtil.leaveChannel(channel, this.removeChannel);
+    ApiUtil.leaveChannel(channel, ChannelActions.receiveToggledChannel);
   },
 
-  removeChannel(response) {
+  setCurrentChannel(channel) {
     AppDispatcher.dispatch({
-      actionType: ChannelConstants.REMOVE_CHANNEL,
-      channel: response
+      actionType: ChannelConstants.SET_CURRENT_CHANNEL,
+      channel: channel
     });
   },
 
@@ -37,19 +29,12 @@ const ChannelActions = {
     });
   },
 
-  receiveSubscribedChannel(response) {
+  receiveToggledChannel(response) {
     AppDispatcher.dispatch({
-      actionType: ChannelConstants.SUBSCRIBED_CHANNEL_RECEIVED,
+      actionType: ChannelConstants.TOGGLE_SUBSCRIPTION,
       channel: response
     });
-  },
-
-  // receiveChannel(response) {
-  //   AppDispatcher.dispatch({
-  //     actionType: ChannelConstants.CHANNEL_RECEIVED,
-  //     channel: response
-  //   });
-  // }
+  }
 };
 
 module.exports = ChannelActions;

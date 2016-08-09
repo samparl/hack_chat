@@ -6,9 +6,11 @@ const React = require('react');
 
 module.exports = React.createClass({
   getInitialState() {
+    // debugger
     return({
       subscribedChannels: ChannelStore.subscribed(),
-      unsubscribedChannels: ChannelStore.unsubscribed()
+      unsubscribedChannels: ChannelStore.unsubscribed(),
+      fetched: false
     });
   },
 
@@ -25,7 +27,8 @@ module.exports = React.createClass({
   _onChange() {
     this.setState({
       subscribedChannels: ChannelStore.subscribed(),
-      unsubscribedChannels: ChannelStore.unsubscribed()
+      unsubscribedChannels: ChannelStore.unsubscribed(),
+      fetched: true
     });
   },
 
@@ -35,9 +38,12 @@ module.exports = React.createClass({
       this.state.unsubscribedChannels.length
     );
     // debugger
+    if (!this.state.fetched) return <div></div>;
     return(
       <div className="panel-content">
-        <ChannelTitle count={ channelCount }/>
+        <ChannelTitle
+          count={ channelCount }
+          fetched={this.state.fetched} />
         <ChannelIndex
           channels={ this.state.subscribedChannels }
           callback={ ChannelActions.setCurrentChannel } />

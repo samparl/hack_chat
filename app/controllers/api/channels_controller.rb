@@ -9,53 +9,19 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
   end
 
-  def create
-    @channel = Channel.new(channel_params)
-    @channel.author_id = current_user.id
-
-    if @channel.save
-      render :show
-    else
-      render(
-        json: @channel.errors.messages,
-        status: 422
-      )
-    end
-  end
-
-  def update
-    @channel = Channel.find(params[:id])
-
-    if !@channel
-      render(
-        json: {base: ['Channel not found']},
-        status: 401
-      )
-    elsif @channel.users << current_user
-      render json: @channel
-    else
-      render(
-        json: @channel.errors.messages,
-        status: 422
-      )
-    end
-
-  end
-
-
   def subscribe
     @channel = Channel.find(params[:id])
     if !@channel
       render(
-        json: {base: ['Channel not found']},
-        status: 401
+      json: {base: ['Channel not found']},
+      status: 401
       )
     elsif @channel.users << current_user
       render json: @channel
     else
       render(
-        json: @channel.errors.messages,
-        status: 422
+      json: @channel.errors.messages,
+      status: 422
       )
     end
   end
@@ -64,18 +30,53 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
     if !@channel
       render(
-        json: {base: ['Channel not found']},
-        status: 401
+      json: {base: ['Channel not found']},
+      status: 401
       )
     elsif @channel.users.delete(current_user)
       render json: @channel
     else
       render(
-        json: @channel.errors.messages,
-        status: 422
+      json: @channel.errors.messages,
+      status: 422
       )
     end
   end
+
+  # def create
+  #   @channel = Channel.new(channel_params)
+  #   @channel.author_id = current_user.id
+  #
+  #   if @channel.save
+  #     render :show
+  #   else
+  #     render(
+  #       json: @channel.errors.messages,
+  #       status: 422
+  #     )
+  #   end
+  # end
+
+  # def update
+  #   @channel = Channel.find(params[:id])
+  #
+  #   if !@channel
+  #     render(
+  #       json: {base: ['Channel not found']},
+  #       status: 401
+  #     )
+  #   elsif @channel.users << current_user
+  #     render json: @channel
+  #   else
+  #     render(
+  #       json: @channel.errors.messages,
+  #       status: 422
+  #     )
+  #   end
+  #
+  # end
+
+
 
 
   private

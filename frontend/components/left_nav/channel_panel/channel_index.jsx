@@ -7,12 +7,11 @@ const ChannelIndexItem = require('./channel_index_item');
 const ChannelIndex = React.createClass({
   getInitialState() {
     return({
-      selected: null
+      selected: ChannelStore.currentChannel()
     });
   },
 
   componentDidMount() {
-    ChannelActions.fetchChannels();
     this.channelsListener = ChannelStore.addListener(this._onChange);
   },
 
@@ -61,7 +60,7 @@ const ChannelIndex = React.createClass({
         </li>
       );
     }.bind(this));
-
+    // debugger
     return(
       <div className="channel-index">
         <ul>
