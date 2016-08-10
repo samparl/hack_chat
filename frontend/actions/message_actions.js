@@ -7,9 +7,9 @@ const MessageActions = {
     ApiUtil.fetchMessages(channel_id, MessageActions.receiveMessages);
   },
 
-  postMessage(channel_id, message) {
+  postMessage(message) {
     // ApiUtil.postMessage(channel_id, message, MessageActions.messagePosted);
-    ApiUtil.postMessage(channel_id, message, MessageActions.receiveMessages);
+    ApiUtil.postMessage(message, MessageActions.receiveMessages);
   },
 
   receiveMessages(messages) {

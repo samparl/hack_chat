@@ -23,6 +23,7 @@ class Api::MessagesController < ApplicationController
     @message.body = message_params[:content]
     # @message.created_at = Date.new
     if @message.save!
+      new_socket_message(@message)
       render :index
     else
       render(
@@ -38,6 +39,14 @@ class Api::MessagesController < ApplicationController
   private
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def new_socket_message(message)
+    Pusher.trigger(
+      params[:channel_id],
+      'new message',
+      message.to_json
+    )
   end
 
 

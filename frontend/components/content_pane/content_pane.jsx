@@ -22,7 +22,6 @@ module.exports = React.createClass({
     this.setState({
       channel: ChannelStore.currentChannel()
     });
-    if(ChannelStore.currentChannel()) MessageActions.fetchMessages(ChannelStore.currentChannel().id);
   },
 
   render() {
