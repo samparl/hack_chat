@@ -7,10 +7,6 @@ const ChannelActions = {
     ApiUtil.fetchChannels(ChannelActions.receiveChannels);
   },
 
-  fetchDirectChannels() {
-    ApiUtil.fetchDirectChannels(ChannelActions.receiveDirectChannels);
-  },
-
   joinChannel(channel) {
     ApiUtil.joinChannel(channel.id, ChannelActions.receiveToggledChannel);
   },
@@ -27,17 +23,8 @@ const ChannelActions = {
   },
 
   receiveChannels(response) {
-    debugger
     AppDispatcher.dispatch({
       actionType: ChannelConstants.CHANNELS_RECEIVED,
-      channels: response
-    });
-  },
-
-  receiveDirectChannels(response) {
-    debugger
-    AppDispatcher.dispatch({
-      actionType: ChannelConstants.DIRECT_CHANNELS_RECEIVED,
       channels: response
     });
   },

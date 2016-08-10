@@ -1,5 +1,6 @@
 const ChannelIndex = require('./channel_index');
 const ChannelTitle = require('./channel_title');
+const DirectChannelTitle = require('./direct_channel_title');
 const ChannelStore = require('../../../stores/channel_store');
 const ChannelActions = require('../../../actions/channel_actions');
 const React = require('react');
@@ -9,6 +10,7 @@ module.exports = React.createClass({
     return({
       subscribedChannels: ChannelStore.subscribed(),
       unsubscribedChannels: ChannelStore.unsubscribed(),
+      directChannels: ChannelStore.directChannels(),
       fetched: false
     });
   },
@@ -27,6 +29,7 @@ module.exports = React.createClass({
     this.setState({
       subscribedChannels: ChannelStore.subscribed(),
       unsubscribedChannels: ChannelStore.unsubscribed(),
+      directChannels: ChannelStore.directChannels(),
       fetched: true
     });
   },
@@ -38,7 +41,7 @@ module.exports = React.createClass({
     );
 
     if (!this.state.fetched) return <div></div>;
-      
+
     return(
       <div className="panel-content">
         <ChannelTitle
@@ -46,6 +49,12 @@ module.exports = React.createClass({
           fetched={this.state.fetched} />
         <ChannelIndex
           channels={ this.state.subscribedChannels }
+          callback={ ChannelActions.setCurrentChannel } />
+        <DirectChannelTitle
+            count={ this.state.directChannels.length }
+            fetched={this.state.fetched} />
+        <ChannelIndex
+          channels={ this.state.directChannels }
           callback={ ChannelActions.setCurrentChannel } />
       </div>
     );

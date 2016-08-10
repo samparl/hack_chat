@@ -7,11 +7,6 @@ class Api::ChannelsController < ApplicationController
       @channels[:direct] = current_user.channels.where(direct: true)
   end
 
-  def direct_index
-    @channels = {}
-    @channels = current_user.channels.where(direct: true)
-  end
-
   def show
     @channel = Channel.find(params[:id])
   end
