@@ -14,11 +14,7 @@ module.exports = React.createClass({
 
   componentDidMount() {
     this.messagesListener = MessageStore.addListener(this._updateMessages);
-    this.channel = pusher.subscribe(`${this.props.channel.id}`);
-    this.channel.bind('new message', function(message) {
-      // debugger
-      alert(message.body);
-    });
+    this._setWebSocket(this.props.channel);
     if(this.props.channel) MessageActions.fetchMessages(this.props.channel.id);
   },
 
@@ -28,7 +24,7 @@ module.exports = React.createClass({
   },
 
   componentWillReceiveProps(newProps) {
-    if(newProps.channel) {
+    if(newProps.channel && newProps.channel !== this.props.channel) {
       this._setWebSocket(newProps.channel);
       MessageActions.fetchMessages(newProps.channel.id);
     }
@@ -37,8 +33,8 @@ module.exports = React.createClass({
   _setWebSocket(channel) {
     if(this.channel) this.channel.unsubscribe(`${this.props.channel.id}`);
     this.channel = pusher.subscribe(`${channel.id}`);
-    this.channel.bind('new message', function(data) {
-      alert(data.message);
+    this.channel.bind('new message', function(message) {
+      MessageActions.newMessage(message);
     });
   },
 
@@ -58,7 +54,6 @@ module.exports = React.createClass({
             );
           })
         }
-        <MessageInput channel={ this.props.channel }/>
       </div>
     );
   }

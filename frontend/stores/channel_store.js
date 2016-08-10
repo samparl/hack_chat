@@ -37,7 +37,6 @@ ChannelStore.resetChannels = function(channels) {
   channels.forEach(function(channel) {
     _channels[channel.id] = channel;
   });
-  // debugger
 };
 
 const setCurrentChannel = function(channel) {

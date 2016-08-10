@@ -14,11 +14,11 @@
  */
 @font-face {
   font-family: "lato-regular";
-  src: url(/assets/fonts/Lato/Lato-Regular-6f6940be0835c3ddec9199e5fc42be4cbc61ebcfd58c623fdf719366253f1780.ttf);
+  src: font-url('Lato/Lato-Regular.ttf');
 }
 @font-face {
   font-family: "lato-light";
-  src: url(/assets/fonts/Lato/Lato-Light-e9d59afb6d9cb9cf6e8d8159d4639d5b577e29efc64a15182f228659cfc1e818.ttf);
+  src: font-url('Lato/Lato-Light.ttf');
 }
 /* line 25, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
@@ -115,7 +115,7 @@ h2 {
 
 /* line 105, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .modal .close {
-  background: url(/assets/close_icon-c7d980885cf3a703908ede6b9d64a78e6bcb329c0b32dda050a83563d7ec2b8a.png);
+  background: asset-url('close_icon.png');
   width: 3rem;
   height: 3rem;
   border: none;
@@ -252,7 +252,7 @@ h2 {
 
 /*LEFT NAV*/
 /* line 220, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
-div.left-nav {
+.left-nav {
   display: block;
   background-color: #4d394b;
   width: 14rem;
@@ -345,7 +345,7 @@ div.left-nav {
   display: none;
   float: right;
   margin-right: .25rem;
-  background: url(/assets/remove_icon-e71daa026ee42efeff3005481ceb41b33dbc64bbbaa4075e4638773c621fe729.png);
+  background: asset-url('remove_icon.png');
   background-size: contain;
   height: 1rem;
   width: 1rem;
@@ -389,18 +389,44 @@ div.left-nav {
   height: 100vh;
   width: 100%;
   min-width: 440px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .content-header {
-    height: 4rem;
+    height: 5rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
     border-bottom: 1px solid #ccc;
+}
+
+.content-footer {
+  height: 5rem;
+  width: 100%;
 }
 
 .messages-display {
     height: 100%;
+    overflow-y: scroll;
 }
 
 .message-input {
-  border: 1px solid #ccc;
+  border: 2px solid #bbbdbf;
+  height: 2.5rem;
+  width: 95%;
+  border-radius: .4rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.message {
+  padding: .25rem 1.5rem;
+  font-size: 15px;
+}
+
+.message:hover {
+  background-color: rgb(245,245,245);
 }

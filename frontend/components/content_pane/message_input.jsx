@@ -21,7 +21,7 @@ module.exports = React.createClass({
       channel_id: this.props.channel.id
     };
     MessageActions.postMessage(message);
-    MessageActions.fetchMessages(this.props.channel.id);
+    // MessageActions.fetchMessages(this.props.channel.id);
     this.setState({
       message: ""
     });

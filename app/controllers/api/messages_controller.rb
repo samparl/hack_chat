@@ -45,7 +45,12 @@ class Api::MessagesController < ApplicationController
     Pusher.trigger(
       params[:channel_id],
       'new message',
-      message.to_json
+      # message.to_json
+      render_to_string({
+        template: 'api/messages/_message', locals: {
+          message: message
+        }
+      })
     )
   end
 
