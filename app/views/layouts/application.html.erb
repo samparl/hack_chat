@@ -10,16 +10,16 @@
   <script>
 
     // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
+    // Pusher.logToConsole = true;
 
     var pusher = new Pusher('cf118fecc25f44026401', {
       encrypted: true
     });
 
-    var channel = pusher.subscribe('test_channel');
-    channel.bind('my_event', function(data) {
-      alert(data.message);
-    });
+    // var channel = pusher.subscribe('test_channel');
+    // channel.bind('my_event', function(data) {
+    //   alert(data.message);
+    // });
   </script>
 
 </head>

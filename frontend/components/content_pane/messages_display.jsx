@@ -14,15 +14,32 @@ module.exports = React.createClass({
 
   componentDidMount() {
     this.messagesListener = MessageStore.addListener(this._updateMessages);
+    this.channel = pusher.subscribe(`${this.props.channel.id}`);
+    this.channel.bind('new message', function(message) {
+      // debugger
+      alert(message.body);
+    });
     if(this.props.channel) MessageActions.fetchMessages(this.props.channel.id);
   },
 
   componentWillUnmount() {
     this.messagesListener.remove();
+    this.channel.unsubscribe(`${this.props.channel.id}`);
   },
 
   componentWillReceiveProps(newProps) {
-    if(newProps.channel) MessageActions.fetchMessages(newProps.channel.id);
+    if(newProps.channel) {
+      this._setWebSocket(newProps.channel);
+      MessageActions.fetchMessages(newProps.channel.id);
+    }
+  },
+
+  _setWebSocket(channel) {
+    if(this.channel) this.channel.unsubscribe(`${this.props.channel.id}`);
+    this.channel = pusher.subscribe(`${channel.id}`);
+    this.channel.bind('new message', function(data) {
+      alert(data.message);
+    });
   },
 
   _updateMessages() {

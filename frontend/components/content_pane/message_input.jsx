@@ -22,12 +22,18 @@ module.exports = React.createClass({
     };
     MessageActions.postMessage(message);
     MessageActions.fetchMessages(this.props.channel.id);
+    this.setState({
+      message: ""
+    });
   },
 
   render() {
     return(
       <form className="message-input-form" onSubmit={ this.postMessage }>
-        <input type="text" onChange={ this.handleInput } className="message-input" />
+        <input type="text"
+          onChange={ this.handleInput }
+          className="message-input"
+          value={ this.state.message } />
       </form>
     );
   }
