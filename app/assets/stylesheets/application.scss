@@ -249,6 +249,7 @@ h2 {
     display: flex;
 }
 
+
 /*LEFT NAV*/
 /* line 220, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 div.left-nav {
@@ -385,7 +386,6 @@ div.left-nav {
 
 /* line 332, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .content-pane {
-  background: yellow;
   height: 100vh;
   width: 100%;
   min-width: 440px;
@@ -394,6 +394,7 @@ div.left-nav {
 
 .content-header {
     height: 4rem;
+    border-bottom: 1px solid #ccc;
 }
 
 .messages-display {

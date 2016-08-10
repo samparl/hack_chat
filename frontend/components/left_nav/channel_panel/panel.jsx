@@ -6,7 +6,6 @@ const React = require('react');
 
 module.exports = React.createClass({
   getInitialState() {
-    // debugger
     return({
       subscribedChannels: ChannelStore.subscribed(),
       unsubscribedChannels: ChannelStore.unsubscribed(),
@@ -37,8 +36,9 @@ module.exports = React.createClass({
       this.state.subscribedChannels.length +
       this.state.unsubscribedChannels.length
     );
-    // debugger
+
     if (!this.state.fetched) return <div></div>;
+      
     return(
       <div className="panel-content">
         <ChannelTitle
