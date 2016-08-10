@@ -53,7 +53,7 @@ module.exports = {
     });
   },
 
-  postMessage(channel_id, message, callback) {
+  postMessage(channel_id, content, callback) {
     $.ajax({
       url: `api/channels/${channel_id}/messages`,
       method: "POST",

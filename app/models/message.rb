@@ -7,7 +7,13 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :channel
 
+  private
   def user_in_channel
-    self.user.channels.include?(self.channel)
+    debugger
+    unless self.user.channels.include?(self.channel)
+      errors.add(
+        :user, "must subscribe to this channel"
+      )
+    end
   end
 end

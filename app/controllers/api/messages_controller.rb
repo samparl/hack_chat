@@ -18,7 +18,17 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
-
+    @message = current_user.messages.new
+    @message.channel = Channel.find(params[:channel_id])
+    @message.body = message_params[:content]
+    # @message.created_at = Date.new
+    if @message.save!
+      render :index
+    else
+      render(
+        @message.errors.messages
+      )
+    end
   end
 
   def destroy
@@ -27,6 +37,7 @@ class Api::MessagesController < ApplicationController
 
   private
   def message_params
+    params.require(:message).permit(:content)
   end
 
 

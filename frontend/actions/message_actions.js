@@ -8,7 +8,8 @@ const MessageActions = {
   },
 
   postMessage(channel_id, message) {
-    ApiUtil.postMessage(channel_id, message, MessageActions.messagePosted);
+    // ApiUtil.postMessage(channel_id, message, MessageActions.messagePosted);
+    ApiUtil.postMessage(channel_id, message, MessageActions.receiveMessages);
   },
 
   receiveMessages(messages) {
@@ -19,7 +20,7 @@ const MessageActions = {
   },
 
   messagePosted(message) {
-    
+    // debugger
   }
 };
 

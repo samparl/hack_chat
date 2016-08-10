@@ -15,7 +15,7 @@ module.exports = React.createClass({
   componentDidMount() {
     this.messagesListener = MessageStore.addListener(this._updateMessages);
     // this.channelListener = ChannelStore.addListener(this._updateChannel);
-    if(this.props.channel) MessageActions.fetchMessages(this.state.channel.id);
+    if(this.props.channel) MessageActions.fetchMessages(this.props.channel.id);
   },
 
   componentWillUnmount() {
