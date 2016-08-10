@@ -1,13 +1,20 @@
 class Api::ChannelsController < ApplicationController
   def index
       @channels = {}
-      @channels[:subscribed] = current_user.channels
-      @channels[:unsubscribed] = Channel.where.not(id: current_user.channel_ids)
+      @channels[:subscribed] = current_user.channels.where(direct: false)
+      @channels[:unsubscribed] =
+        Channel.where.not(id: current_user.channel_ids).where(direct: false)
+  end
+
+  def direct_index
+    @channels = {}
+    @channels = current_user.channels.where(direct: true)
   end
 
   def show
     @channel = Channel.find(params[:id])
   end
+
 
   def subscribe
     @channel = Channel.find(params[:id])

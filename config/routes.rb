@@ -8,6 +8,9 @@ Rails.application.routes.draw do
         patch 'subscribe'
         patch 'unsubscribe'
       end
+      collection do
+        get 'direct_index'
+      end
     end
     resource :sessions, only: [:create, :destroy]
   end
