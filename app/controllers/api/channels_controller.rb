@@ -4,6 +4,7 @@ class Api::ChannelsController < ApplicationController
       @channels[:subscribed] = current_user.channels.where(direct: false)
       @channels[:unsubscribed] =
         Channel.where.not(id: current_user.channel_ids).where(direct: false)
+      @channels[:direct] = current_user.channels.where(direct: true)
   end
 
   def direct_index

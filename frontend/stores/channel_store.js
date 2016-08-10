@@ -16,7 +16,7 @@ ChannelStore.channels = function() {
 
 ChannelStore.subscribed = function() {
   return Object.keys(_channels).reduce(function(subscribed, key) {
-    if(_channels[key].subscribed) subscribed.push(_channels[key]);
+    if(_channels[key].subscribed && !_channels[key].direct) subscribed.push(_channels[key]);
     return subscribed;
   }, []);
 };
@@ -25,6 +25,13 @@ ChannelStore.unsubscribed = function() {
   return Object.keys(_channels).reduce(function(unsubscribed, key) {
     if(!_channels[key].subscribed) unsubscribed.push(_channels[key]);
     return unsubscribed;
+  }, []);
+};
+
+ChannelStore.directChannels = function() {
+  return Object.keys(_channels).reduce(function(direct, key) {
+    if(_channels[key].direct) direct.push(_channels[key]);
+    return direct;
   }, []);
 };
 
@@ -47,36 +54,29 @@ const toggleChannelSubscription = function(channel) {
   _channels[channel.id].subscribed = !_channels[channel.id].subscribed;
 };
 
-const addSubscribedChannel = function(channel) {
-  delete _channels.unsubscribed[channel.id];
-  _channels.subscribed[channel.id] = channel;
-  setCurrentChannel(channel);
-};
+// const addSubscribedChannel = function(channel) {
+//   delete _channels.unsubscribed[channel.id];
+//   _channels.subscribed[channel.id] = channel;
+//   setCurrentChannel(channel);
+// };
 
-const leaveChannel = function(channel) {
-  delete _channels.subscribed[channel.id];
-  _channels.unsubscribed[channel.id] = channel;
-};
+// const leaveChannel = function(channel) {
+//   delete _channels.subscribed[channel.id];
+//   _channels.unsubscribed[channel.id] = channel;
+// };
 
 ChannelStore.__onDispatch = function(payload) {
-  // debugger
   switch (payload.actionType) {
     case ChannelConstants.CHANNELS_RECEIVED:
       ChannelStore.resetChannels(payload.channels.channels);
       ChannelStore.__emitChange();
       break;
-    // case ChannelConstants.SUBSCRIBED_CHANNEL_RECEIVED:
-    //   addSubscribedChannel(payload.channel);
-    //   ChannelStore.__emitChange();
-    //   break;
+
     case ChannelConstants.SET_CURRENT_CHANNEL:
       setCurrentChannel(payload.channel);
       ChannelStore.__emitChange();
       break;
-    // case ChannelConstants.REMOVE_CHANNEL:
-    //   leaveChannel(payload.channel);
-    //   ChannelStore.__emitChange();
-    //   break;
+
     case ChannelConstants.TOGGLE_SUBSCRIPTION:
       toggleChannelSubscription(payload.channel);
       ChannelStore.__emitChange();

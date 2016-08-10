@@ -11,6 +11,16 @@ module.exports = {
     });
   },
 
+  fetchDirectChannels(callback) {
+    $.ajax({
+      url: "api/channels/direct_index",
+      method: "GET",
+      success(response) {
+        callback(response);
+      }
+    });
+  },
+
   getChannel(id, callback) {
     $.ajax({
       url: `api/channels/${id}`,

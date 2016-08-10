@@ -9,11 +9,15 @@ const React = require('react'),
       ModalConductorUtil = require('./util/modal_conductor_util'),
       ApiUtil = require('./util/api_util'),
       MessageActions = require('./actions/message_actions'),
-      MessagesStore = require('./stores/message_store');
+      ChannelActions = require('./actions/channel_actions'),
+      ChannelStore = require('./stores/channel_store'),
+      MessageStore = require('./stores/message_store');
 
 window.ApiUtil = ApiUtil;
 window.MessageActions = MessageActions;
-window.MessageStore = MessagesStore;
+window.MessageStore = MessageStore;
+window.ChannelActions = ChannelActions;
+window.ChannelStore = ChannelStore;
 
 const App = React.createClass({
   render() {
