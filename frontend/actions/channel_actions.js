@@ -7,8 +7,8 @@ const ChannelActions = {
     ApiUtil.fetchChannels(ChannelActions.receiveChannels);
   },
 
-  joinChannel(id) {
-    ApiUtil.joinChannel(id, ChannelActions.receiveToggledChannel);
+  joinChannel(channel) {
+    ApiUtil.joinChannel(channel.id, ChannelActions.receiveToggledChannel);
   },
 
   leaveChannel(channel) {

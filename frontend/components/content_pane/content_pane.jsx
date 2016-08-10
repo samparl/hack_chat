@@ -27,12 +27,13 @@ module.exports = React.createClass({
 
   render() {
 
+    if(!this.state.channel) return <div className="content-pane"></div>;
+
     return(
       <div className="content-pane">
         <ContentHeader channel={ this.state.channel } />
         <MessagesDisplay channel={ this.state.channel } />
       </div>
     );
-    
   }
 });

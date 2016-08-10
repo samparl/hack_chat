@@ -46,6 +46,7 @@ module.exports = React.createClass({
             );
           })
         }
+        <input className="message-input" />
       </div>
     );
   }

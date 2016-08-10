@@ -7,11 +7,19 @@ const MessageActions = {
     ApiUtil.fetchMessages(channel_id, MessageActions.receiveMessages);
   },
 
+  postMessage(channel_id, message) {
+    ApiUtil.postMessage(channel_id, message, MessageActions.messagePosted);
+  },
+
   receiveMessages(messages) {
     AppDispatcher.dispatch({
       actionType: MessageConstants.MESSAGES_RECEIVED,
       messages: messages
     });
+  },
+
+  messagePosted(message) {
+    
   }
 };
 

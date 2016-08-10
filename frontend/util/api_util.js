@@ -51,5 +51,18 @@ module.exports = {
         callback(response);
       }
     });
+  },
+
+  postMessage(channel_id, message, callback) {
+    $.ajax({
+      url: `api/channels/${channel_id}/messages`,
+      method: "POST",
+      data: {
+        message: { content: content }
+      },
+      success(response) {
+        callback(response);
+      }
+    });
   }
 };
