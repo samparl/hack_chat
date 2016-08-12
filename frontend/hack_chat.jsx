@@ -10,14 +10,18 @@ const React = require('react'),
       ApiUtil = require('./util/api_util'),
       MessageActions = require('./actions/message_actions'),
       ChannelActions = require('./actions/channel_actions'),
+      UserActions = require('./actions/user_actions'),
       ChannelStore = require('./stores/channel_store'),
+      UserStore = require('./stores/user_store'),
       MessageStore = require('./stores/message_store');
 
 window.ApiUtil = ApiUtil;
 window.MessageActions = MessageActions;
 window.MessageStore = MessageStore;
-window.ChannelActions = ChannelActions;
+window.UserActions = UserActions;
 window.ChannelStore = ChannelStore;
+window.ChannelStore = ChannelStore;
+window.UserActions = UserActions;
 
 const App = React.createClass({
   render() {

@@ -3,15 +3,13 @@ const ModalActions = require('../../../actions/modal_actions');
 const ChannelModal = require('../../modals/add_channel_modal');
 
 module.exports = React.createClass({
-  openChannelModal() {
-    ModalActions.displayModal(ChannelModal);
-  },
 
   render() {
     return(
-      <span className="title" onClick={ this.openChannelModal }>
-        CHANNELS ({this.props.count})
-      </span>
+      <span className="title" onClick={ this.props.callback }>
+        { this.props.title } ({this.props.count})
+        <button className="remove-channel" onClick={ this.props.callback }></button>
+    </span>
     );
   }
 });

@@ -15,6 +15,10 @@ const ChannelActions = {
     ApiUtil.leaveChannel(channel, ChannelActions.receiveToggledChannel);
   },
 
+  directChannel(participant) {
+    ApiUtil.directChannel(participant, ChannelActions.receiveChannel);
+  },
+
   setCurrentChannel(channel) {
     AppDispatcher.dispatch({
       actionType: ChannelConstants.SET_CURRENT_CHANNEL,
@@ -23,9 +27,17 @@ const ChannelActions = {
   },
 
   receiveChannels(response) {
+    // debugger
     AppDispatcher.dispatch({
       actionType: ChannelConstants.CHANNELS_RECEIVED,
       channels: response
+    });
+  },
+
+  receiveChannel(response) {
+    AppDispatcher.dispatch({
+      actionType: ChannelConstants.CHANNEL_RECEIVED,
+      channel: response
     });
   },
 

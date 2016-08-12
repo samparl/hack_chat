@@ -41,7 +41,7 @@ const ChannelIndex = React.createClass({
   },
 
   render() {
-    // debugger
+
     let selectedChannelId = this.state.selected ? this.state.selected.id : null;
     let channels = this.props.channels.map(function(channel, i) {
 
@@ -53,14 +53,16 @@ const ChannelIndex = React.createClass({
       }
 
       return (
-        <li key={ i }
-          onClick={ () => this._onClick(i) }
-          className={ "channel-index-item"  + selected }>
-          { channel.title }
-          <button className="remove-channel" onClick={ (e) => this._leaveChannel(e, i) }></button>
-        </li>
+        <ChannelIndexItem
+          channel={ channel }
+          key={ i }
+          item_callback={ () => this._onClick(i) }
+          button_callback={ (e) => this._leaveChannel(e, i)}
+          selected={ selected }
+          modal={ this.props.modal } />
       );
     }.bind(this));
+
     return(
       <div className="channel-index">
         <ul>

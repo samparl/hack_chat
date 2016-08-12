@@ -3,6 +3,9 @@ const ChannelTitle = require('./channel_title');
 const DirectChannelTitle = require('./direct_channel_title');
 const ChannelStore = require('../../../stores/channel_store');
 const ChannelActions = require('../../../actions/channel_actions');
+const ModalActions = require('../../../actions/modal_actions');
+const ChannelModal = require('../../modals/add_channel_modal');
+const DirectModal = require('../../modals/direct_channel_modal');
 const React = require('react');
 
 module.exports = React.createClass({
@@ -34,6 +37,14 @@ module.exports = React.createClass({
     });
   },
 
+  openChannelModal() {
+    ModalActions.displayModal(ChannelModal);
+  },
+
+  openDirectModal() {
+    ModalActions.displayModal(DirectModal);
+  },
+
   render() {
     let channelCount = (
       this.state.subscribedChannels.length +
@@ -44,18 +55,33 @@ module.exports = React.createClass({
 
     return(
       <div className="panel-content">
-        <ChannelTitle
-          count={ channelCount }
-          fetched={this.state.fetched} />
-        <ChannelIndex
-          channels={ this.state.subscribedChannels }
-          callback={ ChannelActions.setCurrentChannel } />
-        <DirectChannelTitle
-            count={ this.state.directChannels.length }
-            fetched={this.state.fetched} />
-        <ChannelIndex
-          channels={ this.state.directChannels }
-          callback={ ChannelActions.setCurrentChannel } />
+        <div className="channel-nav">
+
+          <ChannelTitle
+            count={ channelCount }
+            fetched={this.state.fetched}
+            callback={ this.openChannelModal }
+            title="CHANNELS" />
+
+          <ChannelIndex
+            channels={ this.state.subscribedChannels }
+            callback={ ChannelActions.setCurrentChannel } />
+
+        </div>
+
+        <div className="channel-nav">
+
+          <ChannelTitle
+              count={ this.state.directChannels.length }
+              fetched={this.state.fetched}
+              callback={ this.openDirectModal }
+              title="DIRECT CHANNELS" />
+
+          <ChannelIndex
+            channels={ this.state.directChannels }
+            callback={ ChannelActions.setCurrentChannel } />
+
+        </div>
       </div>
     );
   }

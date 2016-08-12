@@ -1,6 +1,16 @@
 const SessionStore = require('../stores/session_store');
 
 module.exports = {
+  fetchUsers(callback) {
+    $.ajax({
+      url: "api/users",
+      method: "GET",
+      success(response) {
+        callback(response);
+      }
+    });
+  },
+
   fetchChannels(callback) {
     $.ajax({
       url: "api/channels",
@@ -25,8 +35,35 @@ module.exports = {
     $.ajax({
       url: `api/channels/${id}/subscribe`,
       method: "PATCH",
-      // data: {join: true},
       success(response) {
+        callback(response);
+      }
+    });
+  },
+
+  createChannel(channel, callback) {
+    $.ajax({
+      url: `api/channels`,
+      method: "POST",
+      data: channel,
+      success(response) {
+        callback(response);
+      }
+    });
+  },
+
+  directChannel(participant, callback) {
+    $.ajax({
+      url: 'api/channels/direct',
+      method: "GET",
+      data: {
+        channel: {
+          title: `${SessionStore.currentUser.id}_${participant.id}`,
+          description: 'DirectChannel',
+          secondary_user_id: participant.id
+        }
+      },
+      success (response) {
         callback(response);
       }
     });

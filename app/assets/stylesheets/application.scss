@@ -14,11 +14,11 @@
  */
 @font-face {
   font-family: "lato-regular";
-  src: font-url('Lato/Lato-Regular.ttf');
+  src: asset-url('Lato/Lato-Regular.ttf');
 }
 @font-face {
   font-family: "lato-light";
-  src: font-url('Lato/Lato-Light.ttf');
+  src: asset-url('Lato/Lato-Light.ttf');
 }
 /* line 25, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
@@ -308,9 +308,17 @@ h2 {
   background-color: #3AA3E3;
 }
 
+.channel-nav {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.75rem
+}
+
 /* line 268, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content {
   padding-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* line 272, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
@@ -323,6 +331,8 @@ h2 {
 /* line 278, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .panel-content .title {
   color: #ab9ba9;
+  width: 75%;
+  font-size: .8rem;
 }
 
 /* line 282, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
@@ -338,6 +348,7 @@ h2 {
   width: 90%;
   border-radius: 0 .25rem .25rem 0;
   height: 1.5rem;
+  font-size: .95rem;
 }
 
 /* line 295, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
@@ -345,7 +356,7 @@ h2 {
   display: none;
   float: right;
   margin-right: .25rem;
-  background: asset-url('remove_icon.png');
+  background: asset-url('remove_icon_highlighted.png');
   background-size: contain;
   height: 1rem;
   width: 1rem;
@@ -376,12 +387,14 @@ h2 {
 .left-nav .team {
   color: white;
   font-weight: bolder;
+  font-size: 1.2rem;
 }
 
 /* line 327, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 .left-nav .user {
   color: #ab9ba9;
   font-weight: bold;
+  font-size: .8rem;
 }
 
 /* line 332, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
@@ -392,10 +405,11 @@ h2 {
   display: flex;
   flex-direction: column;
   position: relative;
+  background: #fff;
 }
 
 .content-header {
-    height: 5rem;
+    height: 4.5rem;
     width: 100%;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid #ccc;

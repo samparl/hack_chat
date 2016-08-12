@@ -1,6 +1,11 @@
 class Api::UsersController < ApplicationController
   skip_before_action :require_sign_in, only: [:create]
 
+  def index
+    @users = User.all
+    render :index
+  end
+
   def create
     @user = User.new(user_params)
 

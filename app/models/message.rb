@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  validates :user_id, :channel_id, presence: true
+  validates :user, :channel, presence: true
   validate :user_in_channel
 
 # ASSOCIATIONS
@@ -9,7 +9,6 @@ class Message < ActiveRecord::Base
 
   private
   def user_in_channel
-    # debugger
     unless self.user.channels.include?(self.channel)
       errors.add(
         :user, "must subscribe to this channel"

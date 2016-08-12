@@ -50,15 +50,17 @@ const setCurrentChannel = function(channel) {
   _currentChannel = channel;
 };
 
-const toggleChannelSubscription = function(channel) {
-  _channels[channel.id].subscribed = !_channels[channel.id].subscribed;
+const toggleChannel = function(channel) {
+  if(!channel.direct) _channels[channel.id] = channel;
+  if(channel.direct) delete _channels[channel.id];
 };
 
-// const addSubscribedChannel = function(channel) {
-//   delete _channels.unsubscribed[channel.id];
-//   _channels.subscribed[channel.id] = channel;
-//   setCurrentChannel(channel);
-// };
+const addChannel = function(channel) {
+  if(!Object.keys(_channels).includes(channel.id)){
+    _channels[channel.id] = channel;
+  }
+  setCurrentChannel(channel);
+};
 
 // const leaveChannel = function(channel) {
 //   delete _channels.subscribed[channel.id];
@@ -78,7 +80,12 @@ ChannelStore.__onDispatch = function(payload) {
       break;
 
     case ChannelConstants.TOGGLE_SUBSCRIPTION:
-      toggleChannelSubscription(payload.channel);
+      toggleChannel(payload.channel);
+      ChannelStore.__emitChange();
+      break;
+
+    case ChannelConstants.CHANNEL_RECEIVED:
+      addChannel(payload.channel);
       ChannelStore.__emitChange();
       break;
     default:
