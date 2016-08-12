@@ -19,7 +19,6 @@ MessageStore.messages = function() {
   return _messages.slice();
 };
 
-
 MessageStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case MessageConstants.MESSAGES_RECEIVED:

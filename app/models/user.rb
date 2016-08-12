@@ -9,9 +9,6 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :user_channels
   has_many :channels, through: :user_channels
-  # has_many :direct_channels
-  # has_many :conversations, through: :direct_channels, source: :channels
-  # has_many :partners, through: :direct_channels, source:
   has_many(
     :conversations,
     class_name: 'Channel',

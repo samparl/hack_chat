@@ -16,10 +16,24 @@
   font-family: "lato-regular";
   src: asset-url('Lato/Lato-Regular.ttf');
 }
+
 @font-face {
   font-family: "lato-light";
   src: asset-url('Lato/Lato-Light.ttf');
 }
+
+@font-face {
+  font-family: "lato-regular";
+  src: asset-url('Lato/Lato-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "lato-regular";
+  src: asset-url('Lato/Lato-Italic.ttf');
+  font-style: italic;
+}
+
 /* line 25, /Users/samparl/Projects/HackChat/app/assets/stylesheets/application.scss */
 html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
   margin: 0;
@@ -409,10 +423,13 @@ h2 {
 }
 
 .content-header {
-    height: 4.5rem;
-    width: 100%;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 4.5rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ccc;
 }
 
 .content-footer {
@@ -421,8 +438,8 @@ h2 {
 }
 
 .messages-display {
-    height: 100%;
-    overflow-y: scroll;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .message-input {
@@ -439,8 +456,42 @@ h2 {
 .message {
   padding: .25rem 1.5rem;
   font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .message:hover {
   background-color: rgb(245,245,245);
+}
+
+.message img {
+  height: 1.8rem;
+  width: auto;
+  margin-right: .5rem;
+}
+
+.message-content {
+  align-items: center;
+}
+
+.message-data {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.message-author {
+  font-weight: bold;
+  margin-right: .5rem;
+}
+
+.message-date {
+  font-family: Lato-Regular;
+  font-style: italic;
+  font-size: .8rem
+}
+
+.message-body {
+
 }
