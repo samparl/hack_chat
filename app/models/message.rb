@@ -7,8 +7,8 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :channel
 
-  has_attached_file :image, default_url: "question_mark.jpg"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  # has_attached_file :image, default_url: "question_mark.jpg"
+  # validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   private
   def user_in_channel

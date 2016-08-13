@@ -1,6 +1,6 @@
 const React = require('react');
 const SessionActions = require('../../../actions/session_actions');
-const SessionStore = require('../../../store/session_store');
+const SessionStore = require('../../../stores/session_store');
 
 module.exports = React.createClass({
 

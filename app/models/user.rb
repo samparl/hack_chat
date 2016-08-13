@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
     foreign_key: :primary_user_id,
     primary_key: :id
   )
+  has_attached_file :image, default_url: "question_mark.jpg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
 # CLASS METHODS
 
