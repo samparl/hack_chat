@@ -47,7 +47,7 @@ const LeftHeader = React.createClass({
     return(
       <div className="left-header" onClick={ this.openDropdown }>
         <h3 className="team">Team Header &#9660;</h3>
-        <h3 className="user">{ SessionStore.currentUser().title }</h3>
+        <h3 className="user">{ SessionStore.currentUser().name }</h3>
         { dropdown }
       </div>
     );

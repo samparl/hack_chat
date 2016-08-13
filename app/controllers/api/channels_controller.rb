@@ -63,11 +63,9 @@ class Api::ChannelsController < ApplicationController
       response = {}
       unless current_user.channels.include?(@channel)
         current_user.channels << @channel
-        # response.title = "Create UserChannel for primary participant"
       end
       unless @secondary_participant.channels.include?(@channel)
         @secondary_participant.channels << @channel
-        # response.description = "Create UserChannel for secondary participant"
       end
       render :show_direct
     else
@@ -102,32 +100,11 @@ class Api::ChannelsController < ApplicationController
     end
   end
 
-  # def update
-  #   @channel = Channel.find(params[:id])
-  #
-  #   if !@channel
-  #     render(
-  #       json: {base: ['Channel not found']},
-  #       status: 401
-  #     )
-  #   elsif @channel.users << current_user
-  #     render json: @channel
-  #   else
-  #     render(
-  #       json: @channel.errors.messages,
-  #       status: 422
-  #     )
-  #   end
-  #
-  # end
-
-
-
 
   private
   def channel_params
     params.require(:channel).permit(
-      :title,
+      :name,
       :description,
       :secondary_user_id,
       :direct

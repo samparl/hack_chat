@@ -11,7 +11,7 @@ module.exports = React.createClass({
       <li
         onClick={ this.props.item_callback }
         className={ "channel-index-item"  + this.props.selected }>
-        { this.props.channel.title }
+        { this.props.channel.name }
         { button }
       </li>
     );

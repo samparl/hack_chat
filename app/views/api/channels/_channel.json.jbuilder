@@ -1,4 +1,4 @@
-json.title channel.title
+json.name channel.name
 json.description channel.description
 json.id channel.id
 json.subscribed subscribed

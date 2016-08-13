@@ -1,5 +1,5 @@
 class Channel < ActiveRecord::Base
-  validates :title, :author_id, presence: true
+  validates :name, :author_id, presence: true
   validate :no_direct_conversation
   validate :full_conversation
 

@@ -58,7 +58,7 @@ module.exports = {
       method: "GET",
       data: {
         channel: {
-          title: `${SessionStore.currentUser.id}_${participant.id}`,
+          name: `${SessionStore.currentUser.id}_${participant.id}`,
           description: 'DirectChannel',
           secondary_user_id: participant.id
         }
@@ -73,7 +73,6 @@ module.exports = {
     $.ajax({
       url: `api/channels/${id}/unsubscribe`,
       method: "PATCH",
-      // data: {join: false},
       success(response) {
         callback(response);
       }

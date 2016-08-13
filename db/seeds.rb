@@ -17,24 +17,24 @@ user5 = User.create({ email: 'user5@user.com', password: 'password' })
 
 
 # PUBLIC CHANNELS
-channel1 = Channel.create({title: 'Talk Radio', description: 'Channel1 description', author_id: user2.id})
-channel2 = Channel.create({title: 'End Times', description: 'Channel2 description', author_id: user1.id})
-channel3 = Channel.create({title: 'FAQ for You', description: 'Channel3 description', author_id: user2.id})
-channel4 = Channel.create({title: 'Productivity', description: 'Channel4 description', author_id: user1.id})
-channel5 = Channel.create({title: 'Illiteracy Inc.', description: 'Channel5 description', author_id: user4.id})
-channel6 = Channel.create({title: 'I Drink Your Milkshake', description: 'Channel6 description', author_id: user5.id})
+channel1 = Channel.create({name: 'Talk Radio', description: 'Channel1 description', author_id: user2.id})
+channel2 = Channel.create({name: 'End Times', description: 'Channel2 description', author_id: user1.id})
+channel3 = Channel.create({name: 'FAQ for You', description: 'Channel3 description', author_id: user2.id})
+channel4 = Channel.create({name: 'Productivity', description: 'Channel4 description', author_id: user1.id})
+channel5 = Channel.create({name: 'Illiteracy Inc.', description: 'Channel5 description', author_id: user4.id})
+channel6 = Channel.create({name: 'I Drink Your Milkshake', description: 'Channel6 description', author_id: user5.id})
 
 # DIRECT CHANNELS
-channel7 = Channel.create({title: "#{user1.id}_#{user2.id}", primary_user_id: user1.id, secondary_user_id: user2.id, description: 'Direct channel', author_id: user1.id, direct: true})
-channel8 = Channel.create({title: "#{user1.id}_#{user3.id}", primary_user_id: user1.id, secondary_user_id: user3.id, description: 'Direct channel', author_id: user1.id, direct: true})
-channel9 = Channel.create({title: "#{user1.id}_#{user4.id}", primary_user_id: user1.id, secondary_user_id: user4.id, description: 'Direct channel', author_id: user1.id, direct: true})
-channel10 = Channel.create({title: "#{user1.id}_#{user5.id}", primary_user_id: user1.id, secondary_user_id: user5.id, description: 'Direct channel', author_id: user1.id, direct: true})
-channel11 = Channel.create({title: "#{user2.id}_#{user3.id}", primary_user_id: user2.id, secondary_user_id: user3.id, description: 'Direct channel', author_id: user2.id, direct: true})
-channel12 = Channel.create({title: "#{user2.id}_#{user4.id}", primary_user_id: user2.id, secondary_user_id: user4.id, description: 'Direct channel', author_id: user2.id, direct: true})
-channel13 = Channel.create({title: "#{user2.id}_#{user5.id}", primary_user_id: user2.id, secondary_user_id: user5.id, description: 'Direct channel', author_id: user2.id, direct: true})
-channel14 = Channel.create({title: "#{user3.id}_#{user4.id}", primary_user_id: user3.id, secondary_user_id: user4.id, description: 'Direct channel', author_id: user3.id, direct: true})
-channel15 = Channel.create({title: "#{user3.id}_#{user5.id}", primary_user_id: user3.id, secondary_user_id: user5.id, description: 'Direct channel', author_id: user3.id, direct: true})
-channel16 = Channel.create({title: "#{user4.id}_#{user5.id}", primary_user_id: user4.id, secondary_user_id: user5.id, description: 'Direct channel', author_id: user4.id, direct: true})
+channel7 = Channel.create({name: "#{user1.id}_#{user2.id}", primary_user_id: user1.id, secondary_user_id: user2.id, description: 'Direct channel', author_id: user1.id, direct: true})
+channel8 = Channel.create({name: "#{user1.id}_#{user3.id}", primary_user_id: user1.id, secondary_user_id: user3.id, description: 'Direct channel', author_id: user1.id, direct: true})
+channel9 = Channel.create({name: "#{user1.id}_#{user4.id}", primary_user_id: user1.id, secondary_user_id: user4.id, description: 'Direct channel', author_id: user1.id, direct: true})
+channel10 = Channel.create({name: "#{user1.id}_#{user5.id}", primary_user_id: user1.id, secondary_user_id: user5.id, description: 'Direct channel', author_id: user1.id, direct: true})
+channel11 = Channel.create({name: "#{user2.id}_#{user3.id}", primary_user_id: user2.id, secondary_user_id: user3.id, description: 'Direct channel', author_id: user2.id, direct: true})
+channel12 = Channel.create({name: "#{user2.id}_#{user4.id}", primary_user_id: user2.id, secondary_user_id: user4.id, description: 'Direct channel', author_id: user2.id, direct: true})
+channel13 = Channel.create({name: "#{user2.id}_#{user5.id}", primary_user_id: user2.id, secondary_user_id: user5.id, description: 'Direct channel', author_id: user2.id, direct: true})
+channel14 = Channel.create({name: "#{user3.id}_#{user4.id}", primary_user_id: user3.id, secondary_user_id: user4.id, description: 'Direct channel', author_id: user3.id, direct: true})
+channel15 = Channel.create({name: "#{user3.id}_#{user5.id}", primary_user_id: user3.id, secondary_user_id: user5.id, description: 'Direct channel', author_id: user3.id, direct: true})
+channel16 = Channel.create({name: "#{user4.id}_#{user5.id}", primary_user_id: user4.id, secondary_user_id: user5.id, description: 'Direct channel', author_id: user4.id, direct: true})
 
 
 # USER_CHANNELS

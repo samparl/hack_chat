@@ -1,4 +1,4 @@
-json.title title
+json.name name
 json.description conversation.description
 json.id conversation.id
 json.subscribed subscribed

@@ -17,19 +17,6 @@ json.channels do
     json.partial! 'direct',
     conversation: channel,
     subscribed: true,
-    title: channel.partner_of(current_user).email
+    name: channel.partner_of(current_user).email
   end
 end
-
-# json.partial! 'direct',
-# channel: channel,
-# direct: true,
-# subscribed: true,
-# title: channel.partner_of(current_user).email
-
-# json.title @secondary_participant.email
-# json.description @conversation.description
-# json.id @conversation.id
-# json.subscribed true
-# json.direct true
-# json.member_count @conversation.users.count

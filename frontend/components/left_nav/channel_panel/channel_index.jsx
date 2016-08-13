@@ -33,7 +33,6 @@ const ChannelIndex = React.createClass({
   },
 
   _leaveChannel(e, channel_key) {
-    // debugger
     e.stopPropagation();
     ChannelActions.leaveChannel(
       this.props.channels[channel_key].id

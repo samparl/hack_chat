@@ -8,14 +8,14 @@ const ChannelActions = require('../../actions/channel_actions');
 module.exports = React.createClass({
   getInitialState() {
     return({
-      title: "",
+      name: "",
       description: ""
     });
   },
 
   // componentDidMount() {
   //   this.setState({
-  //     title: "",
+  //     name: "",
   //     description: ""
   //   });
   // },
@@ -24,9 +24,9 @@ module.exports = React.createClass({
     ModalActions.removeModal();
   },
 
-  _handleTitle(e) {
+  _handleName(e) {
     this.setState({
-      title: e.target.value
+      name: e.target.value
     });
   },
 
@@ -65,7 +65,7 @@ module.exports = React.createClass({
           <h3>Channels you can join</h3>
 
           <form onSubmit={ this._onSubmit } className="create-channel">
-            <input value={ this.state.title } />
+            <input value={ this.state.name } />
             <input value={ this.state.description } />
           </form>
 
