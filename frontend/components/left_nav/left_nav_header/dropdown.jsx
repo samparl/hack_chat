@@ -24,9 +24,9 @@ module.exports = React.createClass({
     return(
       <div className="dropdown" onClick={ this._clickList }>
         <div className="content">
-          <div className="user-info">
+          <div className="section">
             <img src={ image } />
-            <div className="user-name">
+            <div className="info">
               <h3>{ name }</h3>
               <h4>{ `@${name}` }</h4>
             </div>

@@ -16,6 +16,7 @@
 @font-face {
   font-family: "lato-regular";
   src: asset-url('Lato/Lato-Regular.ttf');
+  font-weight: normal;
 }
 
 @font-face {
@@ -41,7 +42,7 @@ html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  color: inherit;
+  color: #555459;
   display: block;
   background-color: inherit;
   font-size: 1rem;
@@ -83,6 +84,8 @@ h3 {
 
 h4 {
   font-size: .95rem;
+  color: #9e9ea6;
+  font-weight: lighter;
 }
 
 .group {
@@ -111,9 +114,6 @@ h4 {
     position: fixed;
     padding-top: 1rem;
 
-    h2 {
-      text-align: center;
-    }
   }
 
   .circle-button {
@@ -164,6 +164,13 @@ h4 {
 
   .channel-block {
     margin-top: 5rem;
+    width: 80%;
+    max-width: 35rem;
+
+    .channel-index-item {
+      border-top: 1px solid #e2e2e2;
+      padding: .5rem;
+    }
   }
 }
 
@@ -284,6 +291,25 @@ h4 {
 
         .content {
           padding: 1rem;
+
+          .section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: .25rem;
+            padding: .25rem;
+
+            img {
+              width: 2.5rem;
+              height: 2.5rem;
+              padding-right: .5rem;
+            }
+
+            .info {
+              display: flex;
+              flex-direction: column;
+            }
+          }
         }
 
         li {
@@ -296,24 +322,7 @@ h4 {
         }
 
 
-        .user-info {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          margin-bottom: .25rem;
-          padding: .25rem;
 
-          img {
-            width: 2.5rem;
-            height: 2.5rem;
-            padding-right: .5rem;
-          }
-        }
-
-        .user-name {
-          display: flex;
-          flex-direction: column;
-        }
       }
     }
 

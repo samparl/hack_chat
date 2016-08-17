@@ -36,14 +36,14 @@ module.exports = React.createClass({
             </p>
           </div>
 
-          <h2 className="h-center">Browse all {
+        </div>
+        <div className="channel-block h-center">
+          <h2>Browse all {
               this.state.subscribedChannels.length + this.state.unsubscribedChannels.length
             } channels
           </h2>
-        </div>
-        <div className="channel-block h-center">
 
-          <h3>Channels you can join</h3>
+          <h5>Channels you can join</h5>
           <div className="modal-list">
             <ChannelIndex
               channels={ this.state.unsubscribedChannels }
@@ -51,7 +51,7 @@ module.exports = React.createClass({
               modal="true" />
           </div>
 
-          <h3>Channels you belong to</h3>
+          <h5>Channels you belong to</h5>
           <div className="modal-list">
             <ChannelIndex
               channels={ this.state.subscribedChannels }

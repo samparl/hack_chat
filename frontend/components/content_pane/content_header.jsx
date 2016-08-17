@@ -6,14 +6,14 @@ module.exports = React.createClass({
     let title;
     let count;
     if(this.props.channel) {
-      title = this.props.channel.title;
+      title = this.props.channel.name;
       count = this.props.channel.member_count;
     }
 
     return(
       <div className="content-header">
-        <div>{ title }</div>
-        <div>{ count } members</div>
+        <h3>{ title }</h3>
+        <h4>{ count } members</h4>
       </div>
     );
   }
