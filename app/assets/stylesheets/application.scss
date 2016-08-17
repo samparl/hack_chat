@@ -77,6 +77,14 @@ h2 {
   font-size: xx-large;
 }
 
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: .95rem;
+}
+
 .group {
   content: "";
   display: block;
@@ -265,24 +273,46 @@ h2 {
         left: .5rem;
         max-height: 100px;
         height: auto;
-        width: 18rem;
+        width: 17rem;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
         background-color: #ffffff;
         border: 1px solid #c5c5c5;
         border-radius: .2rem;
         z-index: 10;
 
+        .content {
+          padding: 1rem;
+        }
+
         li {
-          max-height: 100px;
-          width: 250px;
-          height: 25%;
-          background-color: #ffffff;
-          padding-left: 10px;
-          margin-left: 15px;
-          border-radius: inherit;
+          padding: .1rem .5rem;
+          border-radius: .2rem;
         }
 
         li:hover {
           background-color: #3AA3E3;
+        }
+
+
+        .user-info {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-bottom: .25rem;
+          padding: .25rem;
+
+          img {
+            width: 2.5rem;
+            height: 2.5rem;
+            padding-right: .5rem;
+          }
+        }
+
+        .user-name {
+          display: flex;
+          flex-direction: column;
         }
       }
     }

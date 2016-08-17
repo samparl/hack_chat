@@ -20,21 +20,21 @@ module.exports = React.createClass({
 
   render() {
     let image = SessionStore.currentUser().image_url;
-    let name = SessionStore.currentUser().title;
+    let name = SessionStore.currentUser().name;
     return(
       <div className="dropdown" onClick={ this._clickList }>
-        <div>
-          <div>
+        <div className="content">
+          <div className="user-info">
             <img src={ image } />
-            <div>
-              <div></div>
-              <div></div>
+            <div className="user-name">
+              <h3>{ name }</h3>
+              <h4>{ `@${name}` }</h4>
             </div>
           </div>
+          <ul>
+            <li onClick={ SessionActions.logOut }>Log Out</li>
+          </ul>
         </div>
-        <ul>
-          <li onClick={ SessionActions.logOut }>Log Out</li>
-        </ul>
       </div>
     );
   }
