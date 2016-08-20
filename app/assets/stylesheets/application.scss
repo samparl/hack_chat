@@ -111,24 +111,38 @@ h4 {
 
   .modal-header {
     width: 100%;
-    position: fixed;
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
 
-  }
+    h2 {
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  .circle-button {
-    height: 4rem;
-    width: 4rem;
-    border-radius: 50%;
-    text-align: center;
-    float: right;
-    position: relative;
-    margin-right: 3rem;
+    .circle-button {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      text-align: center;
+      // position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-right: 3rem;
+      margin-left: auto;
 
-    p {
-      position: absolute;
-      top: 1.2rem;
-      left: 1.2rem;
+      .icon {
+        background: asset-url('close_icon.png');
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        background-size: contain;
+        padding-top: 40%;
+        margin-top: 15%;
+        margin-left: auto;
+        margin-right: auto;
+        left: .4rem;
+      }
     }
   }
 
@@ -136,16 +150,6 @@ h4 {
     background: #ccc;
   }
 
-  .close {
-    background: asset-url('close_icon.png');
-    width: 3rem;
-    height: 3rem;
-    border: none;
-    background-size: contain;
-    position: absolute;
-    top: 0;
-    left: .4rem;
-  }
 }
 
 .modal-box {
@@ -163,14 +167,44 @@ h4 {
   justify-content: center;
 
   .channel-block {
-    margin-top: 5rem;
+    margin-top: 1rem;
     width: 80%;
     max-width: 35rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
 
     .channel-index-item {
-      border-top: 1px solid #e2e2e2;
       padding: .5rem;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid transparent;
+      border-top: 1px solid #e2e2e2;
+
+      .row {
+        display: flex;
+        flex-direction: row;
+
+        .title {
+          flex-grow: 1;
+        }
+
+        .channel-users-icon {
+          display: flex;
+          flex-direction: row;
+          img {
+            height: 1rem;
+            width: 1rem;
+          }
+        }
+      }
     }
+    .channel-index-item:hover {
+      background-color: rgb(237, 247, 253);
+      border: 1px solid rgb(211, 236, 250);
+      border-radius: .25rem;
+    }
+
   }
 }
 
@@ -376,25 +410,47 @@ h4 {
     color: white;
   }
 
+  ul {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
   .channel-index-item {
     color: #ab9ba9;
-    display: block;
-    float: left;
-    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
     border-radius: 0 .25rem .25rem 0;
     height: 1.5rem;
     font-size: .95rem;
 
+    .row {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      color: inherit;
+
+      .index-title {
+        flex-grow: 1;
+        color: inherit;
+      }
+    }
+
 
     button {
       display: none;
-      float: right;
       margin-right: .25rem;
       background: asset-url('remove_icon_highlighted.png');
       background-size: contain;
       height: 1rem;
       width: 1rem;
     }
+  }
+
+  .selected {
+    background-color: #4C9689;
+    color: white;
   }
 
   .channel-index-item:before {
@@ -407,11 +463,6 @@ h4 {
 
   .channel-index-item:hover button {
     display: block;
-  }
-
-  .selected {
-    background-color: #4C9689;
-    color: white;
   }
 }
 

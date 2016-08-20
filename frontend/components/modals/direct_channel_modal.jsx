@@ -34,24 +34,20 @@ module.exports = React.createClass({
       <div className="channel-modal">
         <div className="modal-header">
           <div className="circle-button" onClick={ this.closeModal }>
-            <div className="close" />
-            <p>
-              esc
-            </p>
+            <div className="icon">esc</div>
           </div>
 
-          <h2 className="h-center">Direct Messages
-          </h2>
         </div>
-        <div className="channel-block h-center">
+        <div className="channel-block">
+          <h2>Direct Messages</h2>
+          <h5>Recent conversations</h5>
+          <div className="modal-list">
 
-          <h3>Recent conversations</h3>
-
-          <ChannelIndex
-            channels={ this.state.users }
-            callback={ ChannelActions.directChannel }
-            modal="true" />
-
+            <ChannelIndex
+              channels={ this.state.users }
+              callback={ ChannelActions.directChannel }
+              modal="true" />
+          </div>
         </div>
       </div>
     );

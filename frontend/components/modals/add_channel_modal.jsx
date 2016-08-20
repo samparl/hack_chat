@@ -30,29 +30,23 @@ module.exports = React.createClass({
       <div className="channel-modal">
         <div className="modal-header">
           <div className="circle-button" onClick={ this.closeModal }>
-            <div className="close" />
-            <p>
-              esc
-            </p>
+            <div className="icon">esc</div>
           </div>
 
         </div>
-        <div className="channel-block h-center">
+        <div className="channel-block">
           <h2>Browse all {
               this.state.subscribedChannels.length + this.state.unsubscribedChannels.length
             } channels
           </h2>
 
-          <h5>Channels you can join</h5>
           <div className="modal-list">
+            <h5>Channels you can join</h5>
             <ChannelIndex
               channels={ this.state.unsubscribedChannels }
               callback={ ChannelActions.joinChannel }
               modal="true" />
-          </div>
-
-          <h5>Channels you belong to</h5>
-          <div className="modal-list">
+            <h5>Channels you belong to</h5>
             <ChannelIndex
               channels={ this.state.subscribedChannels }
               callback={ ChannelActions.setCurrentChannel }
