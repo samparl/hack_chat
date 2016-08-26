@@ -5,9 +5,10 @@ module.exports = React.createClass({
 
     let title;
     let count;
+
     if(this.props.channel) {
       title = this.props.channel.name;
-      count = this.props.channel.member_count;
+      count = this.props.channel.member_info;
     }
 
     return(

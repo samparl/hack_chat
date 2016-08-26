@@ -1,5 +1,5 @@
-const React = require('react');
-const SessionConstants = require('../constants/session_constants');
+const React = require('react'),
+      SessionConstants = require('../constants/session_constants');
 
 module.exports = {
   signUp(user, success, error) {

@@ -1,8 +1,8 @@
-const SessionApiUtil = require('../util/session_api_util');
-const AppDispatcher = require('../dispatcher/dispatcher');
-const SessionConstants = require('../constants/session_constants');
-const ErrorActions = require('./error_actions.js');
-const hashHistory = require('react-router').hashHistory;
+const SessionApiUtil = require('../util/session_api_util'),
+      AppDispatcher = require('../dispatcher/dispatcher'),
+      SessionConstants = require('../constants/session_constants'),
+      ErrorActions = require('./error_actions.js'),
+      hashHistory = require('react-router').hashHistory;
 
 const SessionActions = {
   fetchCurrentUser(complete){
@@ -26,6 +26,7 @@ const SessionActions = {
       SessionActions.receiveCurrentUser,
       ErrorActions.setErrors
     );
+    // hashHistory.push("/main");
   },
 
   logOut() {
@@ -46,7 +47,7 @@ const SessionActions = {
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGOUT
     });
-    // hashHistory.push("/login");
+    hashHistory.push("/enter");
   }
 };
 

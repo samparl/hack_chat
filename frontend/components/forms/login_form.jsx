@@ -1,7 +1,7 @@
-const React = require('react');
-const UserForm = require('./user_form');
-const SessionActions = require('../../actions/session_actions');
-const SessionConstants = require('../../constants/session_constants');
+const React = require('react'),
+      UserForm = require('./user_form'),
+      SessionActions = require('../../actions/session_actions'),
+      SessionConstants = require('../../constants/session_constants');
 
 module.exports = React.createClass({
   render() {

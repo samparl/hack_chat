@@ -1,6 +1,6 @@
-const React = require('react');
-const ErrorStore = require('../../stores/error_store');
-const ErrorActions = require('../../actions/error_actions');
+const React = require('react'),
+      ErrorStore = require('../../stores/error_store'),
+      ErrorActions = require('../../actions/error_actions');
 
 module.exports = React.createClass({
   getInitialState() {

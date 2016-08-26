@@ -3,8 +3,10 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 const React = require('react'),
       ReactDOM = require('react-dom'),
       Authentication = require('./components/authentication'),
+      UserForms = require('./components/user_forms'),
       LoginForm = require('./components/forms/login_form'),
       SignUpForm = require('./components/forms/signup_form'),
+      Main = require('./components/main'),
       SessionActions = require('./actions/session_actions'),
       ModalConductorUtil = require('./util/modal_conductor_util'),
       ApiUtil = require('./util/api_util'),
@@ -12,6 +14,7 @@ const React = require('react'),
       ChannelActions = require('./actions/channel_actions'),
       UserActions = require('./actions/user_actions'),
       ChannelStore = require('./stores/channel_store'),
+      SessionStore = require('./stores/session_store'),
       UserStore = require('./stores/user_store'),
       MessageStore = require('./stores/message_store');
 
@@ -24,6 +27,32 @@ window.ChannelStore = ChannelStore;
 window.UserActions = UserActions;
 
 const App = React.createClass({
+
+  // getInitialState() {
+  //   return {
+  //     loggedIn: SessionStore.isUserLoggedIn()
+  //   };
+  // },
+
+  componentDidMount() {
+    this.sessionListener = SessionStore.addListener(this._updatePage);
+  },
+
+  componentWillUnmount() {
+    this.sessionListener.remove();
+  },
+
+  _updatePage(loggedIn) {
+    this.setState({
+      loggedIn: SessionStore.isUserLoggedIn()
+    });
+    if(this.loggedIn){
+      hashHistory.push('/enter');
+    } else {
+      hashHistory.push('/main');      
+    }
+  },
+
   render() {
     let content = <div>Hello</div>;
     return (
@@ -35,17 +64,18 @@ const App = React.createClass({
   }
 });
 
-// function _redirectIfNotLoggedIn(nextState, replace) {
-//   if (!SessionStore.isUserLoggedIn()) {
-//     replace('/login');
-//   }
-// }
-//
-// function _redirectIfLoggedIn(nextState, replace) {
-//   if (SessionStore.isUserLoggedIn()) {
-//     replace('/');
-//   }
-// }
+function _ensureLoggedIn(nextState, replace) {
+  // debugger
+  if (!SessionStore.isUserLoggedIn()) {
+    replace('/enter');
+  }
+}
+
+function _ensureLoggedOut(nextState, replace) {
+  if (SessionStore.isUserLoggedIn()) {
+    replace('/');
+  }
+}
 
 
 // const routes = (
@@ -67,9 +97,11 @@ const App = React.createClass({
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={ Authentication } />
-    <Route path="login" component={ LoginForm } />
-    <Route path="signup" component={ SignUpForm } />
+    <IndexRoute component={ Main } onEnter={ _ensureLoggedIn } />
+    <Route path="enter" component={ UserForms } onEnter={ _ensureLoggedOut } />
+    // <Route path="login" component={ LoginForm } />
+    // <Route path="signup" component={ SignUpForm } />
+    <Route path="main" component={ Main } onEnter={ _ensureLoggedIn } />
   </Route>
 );
 
