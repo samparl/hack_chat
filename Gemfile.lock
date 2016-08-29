@@ -37,6 +37,12 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    aws-sdk (2.5.3)
+      aws-sdk-resources (= 2.5.3)
+    aws-sdk-core (2.5.3)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.5.3)
+      aws-sdk-core (= 2.5.3)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -62,11 +68,12 @@ GEM
       thor (~> 0.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    httpclient (2.8.1)
+    httpclient (2.8.2.2)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jmespath (1.3.1)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -101,7 +108,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    pusher (1.1.0)
+    pusher (1.3.0)
       httpclient (~> 2.7)
       multi_json (~> 1.0)
       pusher-signature (~> 0.1.8)
@@ -177,6 +184,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk (>= 2.0)
   bcrypt
   byebug
   coffee-rails (~> 4.1.0)
