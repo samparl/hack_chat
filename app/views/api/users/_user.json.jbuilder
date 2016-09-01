@@ -1,6 +1,6 @@
-# json.extract! user, :id, :email
-# json.channels user.channels.pluck(:id)
-
 json.id user.id
-json.name user.email
-json.image_url user.image.url
+json.name user.name
+json.email user.email
+json.username user.username
+json.image_url asset_path(user.image.url)
+json.team user.team_id

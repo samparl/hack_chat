@@ -3,8 +3,8 @@ const React = require('react');
 module.exports = React.createClass({
   render() {
     return(
-      <div className="fixed header group">
-        <div className="logo">HackChat</div>
+      <div className="team-auth-header">
+        <div className="hack">hack</div>
         <button>Create a new team</button>
       </div>
     );

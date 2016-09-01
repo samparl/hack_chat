@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817162220) do
+ActiveRecord::Schema.define(version: 20160830013630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 20160817162220) do
   add_index "messages", ["channel_id"], name: "index_messages_on_channel_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "teams", ["creator_id"], name: "index_teams_on_creator_id", using: :btree
+
   create_table "user_channels", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "channel_id", null: false
@@ -74,6 +83,7 @@ ActiveRecord::Schema.define(version: 20160817162220) do
     t.datetime "image_updated_at"
     t.string   "name"
     t.string   "username"
+    t.integer  "team_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

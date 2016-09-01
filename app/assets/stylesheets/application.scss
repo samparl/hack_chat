@@ -50,6 +50,10 @@ html, body, header, div, h1, h2, h3, h4, form, ul, li, input, button {
   -webkit-appearance: none;
 }
 
+input:focus, textarea:focus {
+  outline: none;
+}
+
 ::-webkit-input-placeholder {
   font-family: Lato-Regular;
   font-weight: lighter;
@@ -185,6 +189,9 @@ h4 {
         display: flex;
         flex-direction: row;
 
+        .index-title:before {
+        }
+
         .title {
           flex-grow: 1;
         }
@@ -192,6 +199,7 @@ h4 {
         .channel-users-icon {
           display: flex;
           flex-direction: row;
+
           img {
             height: 1rem;
             width: 1rem;
@@ -224,6 +232,43 @@ h4 {
     float: left;
   }
 
+}
+
+
+.team-auth {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-auth-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  padding: auto;
+}
+
+.team-auth-row {
+  height: 2rem;
+  margin: .75rem auto;
+}
+
+.team-auth-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.team-auth-header {
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+
   button {
     float: right;
     padding: 10px 15px;
@@ -231,8 +276,55 @@ h4 {
     border-radius: .25rem;
     color: #fff;
   }
-
 }
+
+.hack {
+  font-weight: 700;
+  font-size: 2rem;
+  flex: 1;
+}
+
+.enter-team {
+  display: flex;;
+  flex-direction: column;
+  width: 100%;
+  max-width: 40rem;
+  min-width: 8rem;
+  height: 18rem;
+  background-color: #fff;
+  border: 0.1px solid #c3c3c3;
+  border-bottom: 2px solid #c3c3c3;
+  border-radius: .25rem;
+  padding-top: 2rem;
+  margin-top: 7rem;
+  overflow-y: scroll;
+}
+
+.team-input {
+  display: inline-block;
+  text-align: right;
+  height: 3rem;
+  width: 10rem;
+  line-height: 3rem;
+  padding-right: 1rem;
+  border: 1px solid #c3c3c3;
+  border-radius: .25rem;
+}
+
+.enter-team input[type="submit"]{
+  width: 15rem;
+  background-color: #3AA3e3;
+  border-radius: .25rem;
+  height: 3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.team-input:focus, .team-input:hover {
+  border: 1.5px solid #3AA3e3;
+}
+
 
 .auth-page {
   display: flex;
@@ -336,7 +428,8 @@ h4 {
             img {
               width: 2.5rem;
               height: 2.5rem;
-              padding-right: .5rem;
+              margin-right: .5rem;
+              border-radius: .25rem;
             }
 
             .info {
@@ -354,9 +447,6 @@ h4 {
         li:hover {
           background-color: #3AA3E3;
         }
-
-
-
       }
     }
 
@@ -430,14 +520,8 @@ h4 {
       flex-direction: row;
       width: 100%;
       color: inherit;
-
-      .index-title {
-        flex-grow: 1;
-        color: inherit;
-        margin-left: 0.25rem;
-      }
+      margin-left: .25rem;
     }
-
 
     button {
       display: none;
@@ -454,9 +538,6 @@ h4 {
     color: white;
   }
 
-  .channel-index-item:before {
-    content: "# ";
-  }
 
   .unselected.channel-index-item:hover {
     background-color: #3E313C;
@@ -465,6 +546,18 @@ h4 {
   .channel-index-item:hover button {
     display: block;
   }
+}
+
+.index-title {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  color: inherit;
+}
+
+.channel-index-item .index-title:before {
+  content: "#";
+  margin-right: .25rem
 }
 
 .content-pane {

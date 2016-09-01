@@ -45,11 +45,13 @@ module.exports = React.createClass({
             <ChannelIndex
               channels={ this.state.unsubscribedChannels }
               callback={ ChannelActions.joinChannel }
+              direct="false"
               modal="true" />
             <h5>Channels you belong to</h5>
             <ChannelIndex
               channels={ this.state.subscribedChannels }
               callback={ ChannelActions.setCurrentChannel }
+              direct="false"
               modal="true" />
           </div>
         </div>

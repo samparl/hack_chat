@@ -6,13 +6,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# ADMIN
+@admin = User.new({team: nil, name: 'admin', username: 'admin', email: 'admin@admin.com', password: 'password' })
+
+# TEAMS
+@team1 = Team.new({name: 'hack-chat', creator: @admin})
+
+@admin.team = @team1
+Team.transaction do
+  @admin.save!
+  @team1.save!
+end
+
 
 # USERS
-user1 = User.create({name: 'user 1', username: 'user1', email: 'user1@user.com', password: 'password' })
-user2 = User.create({name: 'user 2', username: 'user2', email: 'user2@user.com', password: 'password' })
-user3 = User.create({name: 'user 3', username: 'user3', email: 'user3@user.com', password: 'password' })
-user4 = User.create({name: 'user 4', username: 'user4', email: 'user4@user.com', password: 'password' })
-user5 = User.create({name: 'user 5', username: 'user5', email: 'user5@user.com', password: 'password' })
+user1 = User.create({team: @team1, name: 'user 1', username: 'user1', email: 'user1@user.com', password: 'password' })
+user2 = User.create({team: @team1, name: 'user 2', username: 'user2', email: 'user2@user.com', password: 'password' })
+user3 = User.create({team: @team1, name: 'user 3', username: 'user3', email: 'user3@user.com', password: 'password' })
+user4 = User.create({team: @team1, name: 'user 4', username: 'user4', email: 'user4@user.com', password: 'password' })
+user5 = User.create({team: @team1, name: 'user 5', username: 'user5', email: 'user5@user.com', password: 'password' })
 
 
 

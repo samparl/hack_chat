@@ -5,14 +5,33 @@ const React = require('react'),
       Main = require('./main'),
       LoginForm = require('./forms/login_form'),
       SignUpForm = require('./forms/signup_form'),
+      TeamStore = require('../stores/team_store'),
+      TeamActions = require('../actions/team_actions'),
       SessionActions = require('../actions/session_actions'),
       ExternalHeader = require('./external_header');
 
 module.exports = React.createClass({
   getInitialState() {
       return({
-        signup_page: false
+        signup_page: false,
+        team: TeamStore.name()
       });
+  },
+
+  componentDidMount() {
+    this.teamListener = TeamStore.addListener(this._handleTeam);
+    TeamActions.fetchTeamName(this.props.params.id);
+  },
+
+  componentWillUnmount() {
+    this.teamListener.remove();
+  },
+
+  _handleTeam() {
+    // debugger
+    this.setState({
+      team: TeamStore.name()
+    });
   },
 
   _onClick(e) {
@@ -35,10 +54,10 @@ module.exports = React.createClass({
     let form;
     let link_text;
     if(this.state.signup_page) {
-      form = <SignUpForm />;
+      form = <SignUpForm team={ this.state.team } />;
       link_text = "Have an account?";
     } else {
-      form = <LoginForm />;
+      form = <LoginForm team={ this.state.team } />;
       link_text = "New user?";
     }
 

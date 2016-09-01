@@ -7,26 +7,6 @@ const React = require('react'),
       hashHistory = require('react-router').hashHistory;
 
 module.exports = React.createClass({
-  // getInitialState() {
-  //     return({
-  //       status: SessionStore.isUserLoggedIn()
-  //     });
-  // },
-  //
-  // componentDidMount() {
-  //   this.sessionListener = SessionStore.addListener(this._onChange);
-  // },
-  //
-  // componentWillUnmount() {
-  //   this.sessionListener.remove();
-  // },
-  //
-  // _onChange() {
-  //   this.setState({
-  //     status: SessionStore.isUserLoggedIn()
-  //   });
-  //   hashHistory.push('/');
-  // },
 
   render() {
     let errors = ErrorStore.errors.base;

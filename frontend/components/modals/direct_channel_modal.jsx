@@ -45,6 +45,7 @@ module.exports = React.createClass({
 
             <ChannelIndex
               channels={ this.state.users }
+              direct="true"
               callback={ ChannelActions.directChannel }
               modal="true" />
           </div>

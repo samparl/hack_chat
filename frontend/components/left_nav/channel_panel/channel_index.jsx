@@ -58,6 +58,7 @@ const ChannelIndex = React.createClass({
           item_callback={ () => this._onClick(i) }
           button_callback={ (e) => this._leaveChannel(e, i)}
           selected={ selected }
+          direct={ this.props.direct }
           modal={ this.props.modal } />
       );
     }.bind(this));

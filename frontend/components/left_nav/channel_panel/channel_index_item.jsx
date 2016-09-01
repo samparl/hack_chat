@@ -2,24 +2,43 @@ const React = require('react');
 
 module.exports = React.createClass({
   render() {
-    let icon;
-    let row;
+
+    let icon,
+        row,
+        title,
+        name;
+
+    if(this.props.direct === "true") {
+      title = this.props.channel.username;
+    } else {
+      title = this.props.channel.name;
+    }
+
     if(!this.props.modal) {
       icon = <button className="remove-channel" onClick={ this.props.button_callback }></button>;
     }
-    else {
-      icon = (
-        <div className="channel-users-icon">
-          { this.props.channel.member_info } users
-        </div>
-      );
-      row = (
-        <div className="row">
-          <div>
-            Created by { this.props.channel.author }
+    else  {
+      if(this.props.direct === 'false') {
+        row = (
+          <div className="row">
+            <div>
+              Created by { this.props.channel.author }
+            </div>
           </div>
-        </div>
-      );
+        );
+
+        icon = (
+          <div className="channel-users-icon">
+            { this.props.channel.member_info } users
+          </div>
+        );
+      }
+
+      if(this.props.direct === "true") {
+        name = <div className="user-name">
+          { this.props.channel.name }
+        </div>;
+      }
     }
 
     return(
@@ -28,7 +47,8 @@ module.exports = React.createClass({
         className={ "channel-index-item"  + this.props.selected }>
         <div className="row">
           <div className="index-title">
-            { this.props.channel.name }
+            { title }
+            { name }
           </div>
           { icon }
         </div>

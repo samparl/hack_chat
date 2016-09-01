@@ -1,6 +1,7 @@
 const SessionApiUtil = require('../util/session_api_util'),
       AppDispatcher = require('../dispatcher/dispatcher'),
       SessionConstants = require('../constants/session_constants'),
+      SessionStore = require('../stores/session_store'),
       ErrorActions = require('./error_actions.js'),
       hashHistory = require('react-router').hashHistory;
 
@@ -44,10 +45,11 @@ const SessionActions = {
   },
 
   removeCurrentUser(response){
+    let id = SessionStore.currentUser().team;
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGOUT
     });
-    hashHistory.push("/enter");
+    hashHistory.push(`/team/${ id }`);
   }
 };
 

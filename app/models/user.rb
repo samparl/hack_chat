@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   attr_reader :password
-  validates :email, :session_token, :password_digest, presence: true
+  validates :email, :team, :session_token, :password_digest, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
   after_initialize :ensure_session_token
 
 # ASSOCIATIONS
-
+  belongs_to :team
   has_many :messages
   has_many :user_channels
   has_many :channels, through: :user_channels
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     foreign_key: :primary_user_id,
     primary_key: :id
   )
-  has_attached_file :image, default_url: "question_mark.jpg"
+  has_attached_file :image, default_url: "user-icon.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
 # CLASS METHODS

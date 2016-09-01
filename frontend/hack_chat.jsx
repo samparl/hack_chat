@@ -2,6 +2,7 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 
 const React = require('react'),
       ReactDOM = require('react-dom'),
+      EnterTeam = require('./components/teams/enter_team'),
       Authentication = require('./components/authentication'),
       UserForms = require('./components/user_forms'),
       LoginForm = require('./components/forms/login_form'),
@@ -16,7 +17,8 @@ const React = require('react'),
       ChannelStore = require('./stores/channel_store'),
       SessionStore = require('./stores/session_store'),
       UserStore = require('./stores/user_store'),
-      MessageStore = require('./stores/message_store');
+      MessageStore = require('./stores/message_store'),
+      TeamStore = require('./stores/team_store');
 
 window.ApiUtil = ApiUtil;
 window.MessageActions = MessageActions;
@@ -28,11 +30,11 @@ window.UserActions = UserActions;
 
 const App = React.createClass({
 
-  // getInitialState() {
-  //   return {
-  //     loggedIn: SessionStore.isUserLoggedIn()
-  //   };
-  // },
+  getInitialState() {
+    return {
+      loggedIn: SessionStore.isUserLoggedIn()
+    };
+  },
 
   componentDidMount() {
     this.sessionListener = SessionStore.addListener(this._updatePage);
@@ -49,7 +51,7 @@ const App = React.createClass({
     if(this.loggedIn){
       hashHistory.push('/enter');
     } else {
-      hashHistory.push('/main');      
+      hashHistory.push('/main');
     }
   },
 
@@ -65,9 +67,8 @@ const App = React.createClass({
 });
 
 function _ensureLoggedIn(nextState, replace) {
-  // debugger
   if (!SessionStore.isUserLoggedIn()) {
-    replace('/enter');
+    replace('/team');
   }
 }
 
@@ -98,9 +99,8 @@ function _ensureLoggedOut(nextState, replace) {
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={ Main } onEnter={ _ensureLoggedIn } />
-    <Route path="enter" component={ UserForms } onEnter={ _ensureLoggedOut } />
-    // <Route path="login" component={ LoginForm } />
-    // <Route path="signup" component={ SignUpForm } />
+    <Route path="team" component={ EnterTeam } onEnter={ _ensureLoggedOut } />
+    <Route path="team/:id" component={ UserForms } onEnter={ _ensureLoggedOut } />
     <Route path="main" component={ Main } onEnter={ _ensureLoggedIn } />
   </Route>
 );

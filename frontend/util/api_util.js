@@ -79,6 +79,31 @@ module.exports = {
     });
   },
 
+  fetchTeamId(name, callback) {
+    $.ajax({
+      url: `api/teams/find`,
+      method: "GET",
+      data: {
+        team: {
+          name: name
+        }
+      },
+      success(response) {
+        callback(response);
+      }
+    });
+  },
+
+  fetchTeamName(id, callback) {
+    $.ajax({
+      url: `api/teams/${id}`,
+      method: "GET",
+      success(response) {
+        callback(response);
+      }
+    });
+  },
+
   fetchMessages(channel_id, callback) {
     $.ajax({
       url: `api/channels/${channel_id}/messages`,
