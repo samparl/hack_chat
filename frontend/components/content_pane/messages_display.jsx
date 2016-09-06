@@ -8,15 +8,16 @@ const MessageInput = require('./message_input');
 module.exports = React.createClass({
   getInitialState() {
     return({
-      messages: MessageStore.messages()
+      messages: MessageStore.messages(),
+      scroll: 0
     });
   },
 
   componentDidMount() {
+    this.refs.messages.addEventListener('scroll', this._handleScroll);
     this.messagesListener = MessageStore.addListener(this._updateMessages);
     this._setWebSocket(this.props.channel);
     if(this.props.channel) MessageActions.fetchMessages(this.props.channel.id);
-    console.log("old props channel id: " + this.props.channel.id);
   },
 
   componentWillUnmount() {
@@ -28,7 +29,18 @@ module.exports = React.createClass({
     if(newProps.channel && newProps.channel !== this.props.channel) {
       this._setWebSocket(newProps.channel);
       MessageActions.fetchMessages(newProps.channel.id);
-      console.log("new props channel id: " + newProps.channel.id);
+    }
+  },
+
+  componentWillUpdate() {
+    let node = this.refs.messages;
+    this.shouldScrollBottom = node.scrollTop + node.offsetHeight === node.scrollHeight;
+  },
+
+  componentDidUpdate() {
+    if (this.shouldScrollBottom) {
+      let node = this.refs.messages;
+      node.scrollTop = node.scrollHeight;
     }
   },
 
@@ -40,6 +52,15 @@ module.exports = React.createClass({
     });
   },
 
+  _handleScroll(e) {
+    // console.log("working!");
+    this.setState({
+      scroll: this.refs.messages.scrollHeight
+    });
+    // this.refs.messages.scrollTop = this.refs.messages.scrollHeight + 1;
+    // debugger
+  },
+
   _updateMessages() {
     this.setState({
       messages: MessageStore.messages()
@@ -48,7 +69,7 @@ module.exports = React.createClass({
 
   render() {
     return(
-      <div className="messages-display">
+      <div className="messages-display" ref="messages">
         {
           this.state.messages.map(function(message, key) {
             return(
