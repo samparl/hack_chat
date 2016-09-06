@@ -1,11 +1,12 @@
 class Api::ChannelsController < ApplicationController
   def index
-      @channels = {}
-      @channels[:subscribed] = current_user.channels.where(direct: false)
-      @channels[:unsubscribed] =
-        Channel.where.not(id: current_user.channel_ids).where(direct: false)
-      @channels[:direct] = current_user.conversations -
-        (current_user.conversations - current_user.channels)
+    # debugger
+    @channels = {}
+    @channels[:subscribed] = current_user.channels.where(direct: false)
+    @channels[:unsubscribed] =
+      Channel.where.not(id: current_user.channel_ids).where(direct: false)
+    @channels[:direct] = current_user.conversations -
+      (current_user.conversations - current_user.channels)
   end
 
   def show
@@ -58,7 +59,7 @@ class Api::ChannelsController < ApplicationController
       current_user,
       @secondary_participant
     )
-
+    # debugger
     if @channel
       response = {}
       unless current_user.channels.include?(@channel)

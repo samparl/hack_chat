@@ -9,12 +9,12 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :user_channels
   has_many :channels, through: :user_channels
-  has_many(
-    :conversations,
-    class_name: 'Channel',
-    foreign_key: :primary_user_id,
-    primary_key: :id
-  )
+  # has_many(
+  #   :conversations,
+  #   class_name: 'Channel',
+  #   foreign_key: :primary_user_id,
+  #   primary_key: :id
+  # )
   has_attached_file :image, default_url: "user-icon.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
@@ -47,6 +47,10 @@ class User < ActiveRecord::Base
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
+
+  def conversations
+    Channel.where("primary_user_id = ? OR secondary_user_id = ?", self.id, self.id)
   end
 
   private

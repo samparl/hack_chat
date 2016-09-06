@@ -16,6 +16,7 @@ module.exports = React.createClass({
     this.messagesListener = MessageStore.addListener(this._updateMessages);
     this._setWebSocket(this.props.channel);
     if(this.props.channel) MessageActions.fetchMessages(this.props.channel.id);
+    console.log("old props channel id: " + this.props.channel.id);
   },
 
   componentWillUnmount() {
@@ -27,6 +28,7 @@ module.exports = React.createClass({
     if(newProps.channel && newProps.channel !== this.props.channel) {
       this._setWebSocket(newProps.channel);
       MessageActions.fetchMessages(newProps.channel.id);
+      console.log("new props channel id: " + newProps.channel.id);
     }
   },
 

@@ -1,4 +1,5 @@
 const React = require('react');
+const FontAwesome = require('react-fontawesome');
 
 module.exports = React.createClass({
   render() {

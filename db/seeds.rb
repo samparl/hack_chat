@@ -75,7 +75,8 @@ user_channel10 = UserChannel.create({user_id: user4.id, channel_id: channel5.id}
 user_channel11 = UserChannel.create({user_id: user5.id, channel_id: channel5.id})
 
 # DIRECT CHANNELS
-channel7.users << [user1, user2]
+channel7.users << user1
+channel7.users << user2
 channel8.users << [user1, user3]
 channel9.users << [user1, user4]
 channel10.users << [user1, user5]

@@ -28,14 +28,17 @@ class Channel < ActiveRecord::Base
   )
 
   def self.existing_conversation(primary_participant, secondary_participant)
-    Channel.where(
-      "(primary_user_id = ? AND
-      secondary_user_id = ?) OR
-      (primary_user_id = ? AND
-      secondary_user_id = ?)",
+    Channel.where("(primary_user_id = ? AND secondary_user_id = ?) OR (primary_user_id = ? and secondary_user_id = ?)",
       primary_participant.id, secondary_participant.id,
-      primary_participant.id, secondary_participant.id,
-    )[0]
+      secondary_participant.id, primary_participant.id)[0]
+    # Channel.where(
+    #   "(primary_user_id = ? AND
+    #   secondary_user_id = ?) OR
+    #   (primary_user_id = ? AND
+    #   secondary_user_id = ?)",
+    #   primary_participant.id, secondary_participant.id,
+    #   primary_participant.id, secondary_participant.id,
+    # )[0]
   end
 
   def participants

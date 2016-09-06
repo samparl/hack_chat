@@ -78,24 +78,6 @@ function _ensureLoggedOut(nextState, replace) {
   }
 }
 
-
-// const routes = (
-//   <Route path="/" component={App}>
-//     <IndexRoute component={ AppIndex } onEnter={_redirectIfNotLoggedIn} />
-//     <Route path="login" component={ LoginForm } onEnter={_redirectNotLoggedIn} />
-//     <Route path="signup" component={ SignUpForm } onEnter={_redirectNotLoggedIn} />
-//   </Route>
-// );
-
-// const routes = (
-//   <Route path="/" component={App}>
-//     <IndexRoute component={ AppIndex } />
-//     <Route path="login" component={ LoginForm } />
-//     <Route path="signup" component={ SignUpForm } />
-//   </Route>
-// );
-
-
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={ Main } onEnter={ _ensureLoggedIn } />

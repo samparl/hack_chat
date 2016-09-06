@@ -34,6 +34,7 @@ gem 'figaro'
 gem 'pusher'
 gem 'paperclip', "~> 5.0.0.beta1"
 gem 'aws-sdk', '>= 2.0'
+gem 'font-awesome-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
