@@ -236,6 +236,13 @@ h4 {
 
 }
 
+.auth-link {
+  text-decoration: underline;
+}
+
+.auth-link:hover {
+  cursor: pointer;
+}
 
 .team-auth {
   display: flex;
@@ -255,6 +262,8 @@ h4 {
 .team-auth-row {
   height: 2rem;
   margin: .75rem auto;
+  // display: flex;
+  // flex-direction: row;
 }
 
 .team-auth-title {

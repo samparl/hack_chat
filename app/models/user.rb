@@ -9,12 +9,6 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :user_channels
   has_many :channels, through: :user_channels
-  # has_many(
-  #   :conversations,
-  #   class_name: 'Channel',
-  #   foreign_key: :primary_user_id,
-  #   primary_key: :id
-  # )
   has_attached_file :image, default_url: "user-icon.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 

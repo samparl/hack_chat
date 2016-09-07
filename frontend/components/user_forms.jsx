@@ -53,8 +53,11 @@ module.exports = React.createClass({
   render() {
     let form;
     let link_text;
+
     if(this.state.signup_page) {
-      form = <SignUpForm team={ this.state.team } />;
+      form = <SignUpForm
+        teamId={ this.props.params.id }
+        team={ this.state.team } />;
       link_text = "Have an account?";
     } else {
       form = <LoginForm team={ this.state.team } />;
@@ -65,8 +68,9 @@ module.exports = React.createClass({
       <div className="auth-page">
         <ExternalHeader />
         { form }
-        <button onClick={ this._onClick }>{ link_text }</button>
-        <button onClick={ this._guestSignIn }>Guest User</button>
+        <button
+          onClick={ this._onClick }
+          className="auth-link">{ link_text }</button>
       </div>
     );
   }

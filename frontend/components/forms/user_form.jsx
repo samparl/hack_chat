@@ -49,7 +49,8 @@ module.exports = React.createClass({
     e.preventDefault();
     this.props.callback({
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      team_id: this.props.teamId
     });
   },
 

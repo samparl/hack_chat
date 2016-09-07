@@ -1,12 +1,17 @@
 const React = require('react');
 const TeamActions = require('../../actions/team_actions');
 const ExternalHeader = require('../external_header.jsx');
+const hashHistory = require('react-router').hashHistory;
 
 const EnterTeam = React.createClass({
   getInitialState() {
     return({
       name: ""
     });
+  },
+
+  _defaultTeam(e) {
+    hashHistory.push("/team/1");
   },
 
   _handleName(e) {
@@ -31,7 +36,11 @@ const EnterTeam = React.createClass({
         <div className="team-auth-body">
           <form className="enter-team" onSubmit={ this._onSubmit }>
             <div className="team-auth-row team-auth-title">Sign in to another team</div>
-            <div className="team-auth-row">Enter your team&#39;s hack domain</div>
+            <div className="team-auth-row">Enter your team&#39;s hack domain
+              (<a className="auth-link" onClick={ this._defaultTeam }>
+                Guest
+              </a>)
+            </div>
             <div className="team-auth-row">
               <input
               type="text"

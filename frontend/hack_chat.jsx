@@ -68,22 +68,22 @@ const App = React.createClass({
 
 function _ensureLoggedIn(nextState, replace) {
   if (!SessionStore.isUserLoggedIn()) {
-    replace('/team');
+    replace('/');
   }
 }
 
 function _ensureLoggedOut(nextState, replace) {
   if (SessionStore.isUserLoggedIn()) {
-    replace('/');
+    replace('/main');
   }
 }
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={ Main } onEnter={ _ensureLoggedIn } />
-    <Route path="team" component={ EnterTeam } onEnter={ _ensureLoggedOut } />
+    <IndexRoute component={ EnterTeam } />
+    <Route component={ EnterTeam } onEnter={ _ensureLoggedOut } />
     <Route path="team/:id" component={ UserForms } onEnter={ _ensureLoggedOut } />
-    <Route path="main" component={ Main } onEnter={ _ensureLoggedIn } />
+    <Route path="/main" component={ Main } onEnter={ _ensureLoggedIn } />
   </Route>
 );
 

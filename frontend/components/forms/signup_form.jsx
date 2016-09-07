@@ -5,10 +5,14 @@ const React = require('react'),
 
 module.exports = React.createClass({
   render() {
+    // debugger
     return(
       <article className="centered">
         <h2>Sign up here</h2>
-        <UserForm form={ SessionConstants.signup } callback={ SessionActions.signUp }/>
+        <UserForm
+          teamId={ this.props.teamId }
+          form={ SessionConstants.signup }
+          callback={ SessionActions.signUp }/>
       </article>
     );
   }

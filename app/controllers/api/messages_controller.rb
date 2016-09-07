@@ -21,7 +21,7 @@ class Api::MessagesController < ApplicationController
     @message = current_user.messages.new
     @message.channel = Channel.find(params[:channel_id])
     @message.body = message_params[:content]
-    # @message.created_at = Date.new
+
     if @message.save!
       new_socket_message(@message)
       render :index
