@@ -38,7 +38,7 @@ class Api::MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :channel_id)
   end
 
   def new_socket_message(message)
