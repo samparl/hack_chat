@@ -1,4 +1,11 @@
-// const link = function
+const React = require('react'),
+      SessionActions = require('../../actions/session_actions'),
+      defaultUser = function() {
+        SessionActions.logIn({
+          email: 'user1@user.com',
+          password: 'password'
+        });
+      };
 
 module.exports = {
   form: {
@@ -11,7 +18,7 @@ module.exports = {
     about: {
       title: "Sign in to hack-chat",
       subTitle: <div>Enter your email address and password (
-        <a className="auth-link" onClick={ this._defaultUser }>
+        <a className="auth-link" onClick={ defaultUser }>
           Guest
         </a>)</div>,
       buttonText: "Sign In",
@@ -28,7 +35,7 @@ module.exports = {
       {
         handle: "password",
         placeholder: "password",
-        type: password
+        type: 'password'
       }
     ]
   }]

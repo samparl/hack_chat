@@ -3,12 +3,8 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
 const React = require('react'),
       ReactDOM = require('react-dom'),
       EnterTeam = require('./components/teams/enter_team'),
-      Authentication = require('./components/authentication'),
-      UserForms = require('./components/user_forms'),
       LoginForm = require('./components/forms/login_form_container'),
-      SignUpForm = require('./components/forms/signup_form'),
       SignUpInfo = require('./components/forms/sign_up_container'),
-      // SignUpCred = require('./components/forms/signup_cred_form'),
       Main = require('./components/main'),
       SessionActions = require('./actions/session_actions'),
       ModalConductorUtil = require('./util/modal_conductor_util'),
@@ -97,9 +93,8 @@ const routes = (
     <Route path="team/:id" onEnter={ _ensureLoggedOut }>
       <IndexRoute onEnter={ _loginRedirect } component={ SignUpInfo } />
       <Link to="login" />
-      // <Route path="info" component={ SignUpInfo } />
       <Route path="signup" component={ SignUpInfo } />
-      <Route path="login" component={ UserForms } />
+      <Route path="login" component={ LoginForm } />
     </Route>
     <Route path="/main" component={ Main } onEnter={ _ensureLoggedIn } />
   </Route>
