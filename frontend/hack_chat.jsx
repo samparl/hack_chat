@@ -5,8 +5,10 @@ const React = require('react'),
       EnterTeam = require('./components/teams/enter_team'),
       Authentication = require('./components/authentication'),
       UserForms = require('./components/user_forms'),
-      LoginForm = require('./components/forms/login_form'),
+      LoginForm = require('./components/forms/login_form_container'),
       SignUpForm = require('./components/forms/signup_form'),
+      SignUpInfo = require('./components/forms/sign_up_container'),
+      // SignUpCred = require('./components/forms/signup_cred_form'),
       Main = require('./components/main'),
       SessionActions = require('./actions/session_actions'),
       ModalConductorUtil = require('./util/modal_conductor_util'),
@@ -16,6 +18,7 @@ const React = require('react'),
       UserActions = require('./actions/user_actions'),
       ChannelStore = require('./stores/channel_store'),
       SessionStore = require('./stores/session_store'),
+      SignUpStore = require('./stores/signup_store'),
       UserStore = require('./stores/user_store'),
       MessageStore = require('./stores/message_store'),
       TeamStore = require('./stores/team_store');
@@ -27,6 +30,7 @@ window.UserActions = UserActions;
 window.ChannelStore = ChannelStore;
 window.ChannelStore = ChannelStore;
 window.UserActions = UserActions;
+window.SignUpStore = SignUpStore;
 
 const App = React.createClass({
 
@@ -78,11 +82,25 @@ function _ensureLoggedOut(nextState, replace) {
   }
 }
 
+function _loginRedirect(nextState, replace) {
+  if(!SessionStore.isUserLoggedIn()) {
+    let path = nextState.location.pathname;
+    let addn = path[path.length - 1] === "/" ? 'login' : '/login';
+    replace(nextState.location.pathname + addn);
+  }
+}
+
 const routes = (
-  <Route path="/" component={App}>
+  <Route path="/" component={ App }>
     <IndexRoute component={ EnterTeam } />
     <Route component={ EnterTeam } onEnter={ _ensureLoggedOut } />
-    <Route path="team/:id" component={ UserForms } onEnter={ _ensureLoggedOut } />
+    <Route path="team/:id" onEnter={ _ensureLoggedOut }>
+      <IndexRoute onEnter={ _loginRedirect } component={ SignUpInfo } />
+      <Link to="login" />
+      // <Route path="info" component={ SignUpInfo } />
+      <Route path="signup" component={ SignUpInfo } />
+      <Route path="login" component={ UserForms } />
+    </Route>
     <Route path="/main" component={ Main } onEnter={ _ensureLoggedIn } />
   </Route>
 );

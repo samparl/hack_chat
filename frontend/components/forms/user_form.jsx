@@ -11,11 +11,6 @@ module.exports = React.createClass({
     });
   },
 
-
-  // componentWillMount() {
-  //   ErrorActions.clearErrors();
-  // },
-
   componentDidMount() {
     this.errorListener = ErrorStore.addListener(this._onChange);
   },
@@ -55,6 +50,7 @@ module.exports = React.createClass({
   },
 
   render() {
+    // debugger
     let base_errors = this.state.errors.base;
 
     if (base_errors) {

@@ -8,7 +8,8 @@ const React = require('react'),
       TeamStore = require('../stores/team_store'),
       TeamActions = require('../actions/team_actions'),
       SessionActions = require('../actions/session_actions'),
-      ExternalHeader = require('./external_header');
+      ExternalHeader = require('./external_header'),
+      hashHistory = require('react-router').hashHistory;
 
 module.exports = React.createClass({
   getInitialState() {
@@ -28,7 +29,6 @@ module.exports = React.createClass({
   },
 
   _handleTeam() {
-    // debugger
     this.setState({
       team: TeamStore.name()
     });
@@ -36,10 +36,8 @@ module.exports = React.createClass({
 
   _onClick(e) {
     e.preventDefault();
-    let new_page = (this.state.signup_page ? false : true);
-    this.setState({
-      signup_page: new_page
-    });
+    let path = `team/${ this.props.params.id }/signup`;
+    hashHistory.push(path);
   },
 
   _guestSignIn(e) {

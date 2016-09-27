@@ -20,15 +20,15 @@ module.exports = React.createClass({
 
   render() {
     let image = SessionStore.currentUser().image_url;
-    let name = SessionStore.currentUser().name;
+    let username = SessionStore.currentUser().username;
     return(
       <div className="dropdown" onClick={ this._clickList }>
         <div className="content">
           <div className="section">
             <img src={ image } className="thumbnail1" />
             <div className="info">
-              <h3>{ name }</h3>
-              <h4>{ `@${name}` }</h4>
+              <h3>{ username }</h3>
+              <h4>{ `@${username}` }</h4>
             </div>
           </div>
           <ul>
